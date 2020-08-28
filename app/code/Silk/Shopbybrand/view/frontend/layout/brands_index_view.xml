@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+	  
+	    <referenceContainer name="header-wrapper">
+		    <referenceBlock name="navigation.sections" remove="true" />
+	    </referenceContainer>
+	    <referenceBlock name="category.products.list">
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">Epicor_Comm::product/list.phtml</argument>
+            </action>
+            <block class="Epicor\Comm\Block\Catalog\Product\ListProduct" name="epicor_ecc_product_list"/>
+            <block class="Epicor\Comm\Block\Catalog\Product\Skudisplay" template="Epicor_Comm::product/skudisplay.phtml" name="epicor_comm.skudisplay" as="epicor_ecc_sku_display"/>
+            <block class="Epicor\Comm\Block\Catalog\Product\Stockdisplay" template="Epicor_Comm::product/stockdisplay.phtml" name="epicor_comm.stockdisplay" as="epicor_ecc_stock_display"/>
+            <block class="Epicor\Comm\Block\Catalog\Product\Configurator" template="Epicor_Comm::product/configurator.phtml" name="epicor_comm.configurator" as="epicor_ecc_product_configurator"/>
+            <block class="Epicor\Comm\Block\Catalog\Product\Listing\Locations" template="Epicor_Comm::product/list/locations.phtml" name="epicor_comm.locations" as="epicor_ecc_product_list_locations"/>
+            <block class="Epicor\BranchPickup\Block\Selectedbranch" template="Epicor_Comm::product/list/relatedBranch.phtml" name="epicor_comm.related_branch" as="epicor_ecc_product_list_related_branch" />
+        </referenceBlock>
+
+        <!--Block For Stock Ajax-->
+        <block class="Epicor\Comm\Block\Catalog\Product\ListProduct" name="price.loader.ajax" template="Epicor_Comm::product/pricedisplay.phtml" as="priceview_ajax">
+            <block class="Magento\Catalog\Block\Product\ProductList\Item\Container" name="category.product.addto.ajax" as="addto">
+                <block class="Magento\Catalog\Block\Product\ProductList\Item\AddTo\Compare" name="category.product.addto.compare.ajax" as="compare" template="Magento_Catalog::product/list/addto/compare.phtml"/>
+                <block class="Magento\Wishlist\Block\Catalog\Product\ProductList\Item\AddTo\Wishlist" name="category.product.addto.wishlist.ajax" as="wishlist" before="compare" template="Magento_Wishlist::catalog/product/list/addto/wishlist.phtml"/>
+            </block>
+            <block class="Epicor\Comm\Block\Catalog\Product\Stockdisplay" template="Epicor_Comm::product/stockdisplay.phtml" name="epicor_comm.stockdisplay.ajax" as="epicor_ecc_stock_display_ajax"/>
+            <block class="Epicor\Comm\Block\Catalog\Product\Configurator" template="Epicor_Comm::product/configurator.phtml" name="epicor_comm.configurator.ajax" as="epicor_ecc_product_configurator_ajax"/>
+            <block class="Epicor\Comm\Block\Catalog\Product\Listing\Locations" template="Epicor_Comm::product/list/locations.phtml" name="epicor_comm.locations.ajax" as="epicor_ecc_product_list_locations_ajax"/>
+            <block class="Epicor\BranchPickup\Block\Selectedbranch" template="Epicor_Comm::product/list/relatedBranch.phtml" name="epicor_comm.related_branch.ajax" as="epicor_ecc_product_list_related_branch_ajax" />
+        </block>
+    </body>
+</page>

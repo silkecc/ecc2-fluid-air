@@ -1,0 +1,165 @@
+<?php
+/**
+ * Copyright © 2010-2018 Epicor Software Corporation: All Rights Reserved
+ */
+?><input type="hidden" id="product-stock-wrapper-url" value="<?php echo $this->getUrl('epicor_comm/configurableproducts/stockandprice') ?>" />
+<div id="product-stock-wapper">
+    <?php echo $this->getChildHtml(); ?>
+</div>
+<script>
+
+require([
+  "jquery",
+  "Magento_Checkout/js/model/full-screen-loader",
+  "jquery/ui"
+], 
+function($,fullScreenLoader) {
+    $(document).ready(function(e) {
+        $(".super-attribute-select").change(function(e){
+                fullScreenLoader.startLoader();
+                setTimeout(function(){
+                   var valueSelected = $(e.target).val();
+                   loadConfigurableProductsPrice(valueSelected);
+                },250);
+
+        });
+        setTimeout(function(){
+            getCSimpleProductId();
+           loadConfigurableProductsPrice();
+        },2000);
+    });
+
+    $(document).on('swatch.initialized', function () {
+        $(".swatch-select").change(function (e) {
+            fullScreenLoader.startLoader();
+            setTimeout(function () {
+                getCSimpleProductId();
+                var valueSelected = $(e.target).val();
+                loadConfigurableProductsPrice(valueSelected);
+            }, 250);
+
+        });
+        $(".swatch-option").click(function (e) {
+            fullScreenLoader.startLoader();
+            setTimeout(function () {
+                getCSimpleProductId();
+                var valueSelected = $(e.target).attr("option-id");
+                loadConfigurableProductsPrice(valueSelected);
+            }, 250);
+        });
+    });
+
+   
+    function getCSimpleProductId() {
+        var selected_options = {};
+        var product_id_index = [];
+        var found_ids = [];
+        $('div.swatch-attribute').each(function (k, v) {
+            var attribute_id = $(v).attr('attribute-id');
+            var option_selected = $(v).attr('option-selected');
+            if (!attribute_id || !option_selected) {
+                return;
+            }
+            selected_options[attribute_id] = option_selected;
+        });
+
+        if ($('[data-role=swatch-options]').data('mageSwatchRenderer') && $('[data-role=swatch-options]').data('mageSwatchRenderer').options.jsonConfig.index) {
+            product_id_index = $('[data-role=swatch-options]').data('mageSwatchRenderer').options.jsonConfig.index;
+        }
+
+        $.each(product_id_index, function (product_id, attributes) {
+            var productIsSelected = function (attributes, selected_options) {
+                return _.isEqual(attributes, selected_options);
+            }
+            if (productIsSelected(attributes, selected_options)) {
+                found_ids.push(product_id);
+            }
+        });
+
+        if (found_ids.length > 0) {
+            $('input[name="selected_configurable_option"]').val(found_ids[0]);
+        } else if ($('[data-role=swatch-options]').length > 0 && found_ids.length == 0) {
+            $('input[name="selected_configurable_option"]').val("");
+        }
+    }
+
+    function loadConfigurableProductsPrice(valueSelected) {
+        if ($('#product-stock-wrapper-url').length > 0) {
+            if((valueSelected =="undefined") || (valueSelected =="") ) {
+                if($('input[name="selected_configurable_option"]').length > 0) {
+                    $('input[name="selected_configurable_option"]').val('')
+                }
+            }
+            fullScreenLoader.startLoader();
+            if ($('#product-stock-wapper')) {
+                $('#product-stock-wapper').html("");
+            }            
+            var url = $('#product-stock-wrapper-url').val();
+            var completed = true;
+            $$('.super-attribute-select.required-entry').each(function (el) {
+                if (el.value == '') {
+                    completed = false;
+                    return false;
+                }
+            });
+            if (completed) {
+                    $.ajax({
+                        showLoader: true,
+                        data: $('#product_addtocart_form').serialize(true),
+                        url:   url,
+                        type: "POST",
+                        dataType: 'json'
+                    }).done(function(jsons) {
+                        fullScreenLoader.stopLoader();
+                        if(jsons.html) {
+                            if ($('#product-stock-wapper')) {
+                                $('#product-stock-wapper').html(jsons.html);
+                               
+                                var gallerySelector = '[data-gallery-role=gallery-placeholder-q]';
+                                var gallery = $(gallerySelector).data('gallery');
+                                var status = false;
+                                var newImages = [];
+                                var count = 1;
+                                var currentImg = jsons.gallery;
+
+                                console.log("gallery quick shop:");
+                                newImages.push(count,0,{
+                                img: currentImg,
+                                thumb: currentImg,
+                                full: currentImg,
+                                caption: '',
+                                position: 1,
+                                isMain: false,
+                                imglabel:true
+                                });
+                                gallery.updateData(newImages);
+                                console.log(gallery);
+                                
+                            }
+                        } else {
+                            if (jsons.error) {
+                                var error = jsons.error;
+                            } else {
+                                var error ='Error occured in Ajax Call';
+                            }
+                                                
+                            
+                        }
+                        
+                    });
+
+            } else {
+                if ($('#product-stock-wapper')) {
+                    fullScreenLoader.stopLoader();
+                    $('#product-stock-wapper').update();
+                }
+            }
+        }
+    }  
+});  
+</script>
+<style type="text/css">
+    .product-info-price .price-wrapper {
+        display:none !important;
+    }
+</style>

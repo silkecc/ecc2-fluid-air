@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2018 Codazon. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\CatalogSearch\Controller\Result\Index">
+        <plugin name="ajax_layered_nav_pro_plugin_catalogsearch_result_index" type="Codazon\AjaxLayeredNavPro\Plugin\CatalogSearch\View" sortOrder="10" disabled="true"/>
+    </type>
+    <type name="Epicor\Comm\Controller\Category\Search\Result">
+        <plugin name="ajax_layered_nav_pro_plugin_epicor_comm_catalogsearch_result" type="Silk\AjaxLayeredNavPro\Plugin\CatalogSearch\Result" sortOrder="10" disabled="false"/>
+    </type>
+</config>

@@ -1,0 +1,42 @@
+<?php
+/**
+ * @var $this \Epicor\Common\Block\Customer\Account\Links
+ * @var $_link \Magento\Framework\View\Element\Html\Link\Current
+ */
+?>
+<div class="block block-collapsible-nav customerconnect-collapsible-nav">
+    <div class="title block-collapsible-nav-title customerconnect-nav-title">
+        <strong><?php echo __($this->getTitle()); ?></strong>
+    </div>
+    <div class="content block-collapsible-nav-content">
+        
+        <ul class="nav items">
+            <?php $_links = $this->getLinks(); ?>
+            <?php $_index = 1; ?>
+            <?php $_count = count($_links); ?>
+            <?php //Mage::log($this);?>
+            <?php foreach ($_links as $_link): ?>
+                <?php $_last = ($_index++ >= $_count); ?>
+                <?php if ($_link->isCurrent()): ?>
+                    <li class="nav item current<?php echo ($_last ? ' last' : '') ?>"><strong><?php echo $_link->getLabel() ?></strong></li>
+                <?php else: ?>
+                    <li class="nav item <?php echo ($_last ? ' class="last"' : '') ?>"><a href="<?php echo $_link->escapeHtml($_link->getHref()) ?>"><?php echo $_link->getLabel() ?></a></li>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    require(['jquery','domReady!'],function($){
+        $(".customerconnect-nav-title").click(function(){
+            if($(this).hasClass("active")){
+                $(this).removeClass("active");
+                $(this).next('.content').removeClass("active");
+            }else{
+                $(this).addClass("active");
+                $(this).next('.content').addClass("active");
+            }
+        });
+        
+    });
+</script>

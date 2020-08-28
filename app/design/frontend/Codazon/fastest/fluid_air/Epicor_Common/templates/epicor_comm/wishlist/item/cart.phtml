@@ -1,0 +1,77 @@
+<?php
+/**
+ * Copyright © 2010-2018 Epicor Software Corporation: All Rights Reserved
+ */
+?><?php
+/* @var $block Magento\Wishlist\Block\Customer\Wishlist\Item\Column\Cart */
+/* @var \Magento\Wishlist\Model\Item $item */
+$item = $block->getItem();
+$product = $item->getProduct();
+
+$helper = $this->helper('Epicor\Comm\Helper\Data');
+/* @var $helper \Epicor\Comm\Helper\Data */
+
+$showAddToCart = $helper->isFunctionalityDisabledForCustomer('cart') ? false : true;
+$locHelper = $this->helper('Epicor\Comm\Helper\Locations');
+        /* @var $locHelper \Epicor\Comm\Helper\Locations */
+     
+ $locationsEnabled =   $locHelper->isLocationsEnabled() ? true : false;
+ $groupOrConfigurable = in_array($product->getTypeId(),array('grouped','configurable')) ? true : false; 
+?>
+<div class="cart-cell box-tocart">
+    <fieldset class="fieldset">
+    <?php if ($showAddToCart) : ?>
+        <div class="add-to-cart-alt">
+        <?php if ($item->canHaveQty() && $item->getProduct()->isVisibleInSiteVisibility()): ?>
+            <div class="field qty">
+                <label class="label" for="qty[<?php /* @escapeNotVerified */ echo $item->getId() ?>]"><span><?php /* @escapeNotVerified */ echo __('Qty') ?></span></label>
+                <div class="control">
+                    <?php 
+                    $validation = ""; 
+                    $decimalPlaces = $helper->getDecimalPlaces($item->getProduct());
+                    if ($decimalPlaces != "") {
+                        $validation = ", 'validatedecimalplace':" . $decimalPlaces;
+                    }
+                    ?>
+                    <input type="number" data-role="qty" id="qty[<?php /* @escapeNotVerified */ echo $item->getId() ?>]" class="input-text qty" data-validate="{'required-number':true,'validate-greater-than-zero':true <?php echo $validation; ?>}"
+                           name="qty[<?php /* @escapeNotVerified */ echo $item->getId() ?>]" value="<?php /* @escapeNotVerified */ echo $block->getAddToCartQty($item) * 1 ?>">
+                </div>
+            </div>
+        <?php endif; ?>
+            <?php if ($product->isSaleable()): ?>
+                <?php if($locationsEnabled || $groupOrConfigurable): ?>
+                    <div class="product-item-actions">
+                        <div class="actions-primary">
+                            <a href="<?php echo $product->getProductUrl().'?wishlistid='. $item->getId()?>">
+                                <button type="button" data-role="tocart" data-post='<?php /* @escapeNotVerified */ echo $block->getItemAddToCartParams($item)?>' title="<?php /* @escapeNotVerified */ echo __('Add to Cart') ?>" data-item-id="<?php /* @escapeNotVerified */ echo $item->getId()?>" class="action tocart primary wishlisttocart">
+                                    <span><?php /* @escapeNotVerified */ echo __('Add to Cart') ?></span>
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                <?php else: ?>
+                    <div class="product-item-actions">
+                        <div class="actions-primary">
+                            <button type="button" data-role="tocart" data-post='<?php /* @escapeNotVerified */ echo $block->getItemAddToCartParams($item)?>' title="<?php /* @escapeNotVerified */ echo __('Add to Cart') ?>" data-item-id="<?php /* @escapeNotVerified */ echo $item->getId()?>" class="action tocart primary wishlisttocart">
+                                <span><?php /* @escapeNotVerified */ echo __('Add to Cart') ?></span>
+                            </button>
+                        </div>
+                    </div>
+                <?php endif; ?>
+            <?php else: ?>
+                <?php if ($product->getIsSalable()): ?>
+                    <p class="available stock" title="<?php /* @escapeNotVerified */ echo __('Availability') ?>">
+                        <span><?php /* @escapeNotVerified */ echo __('In stock') ?></span>
+                    </p>
+                <?php else: ?>
+                    <p class="unavailable stock" title="<?php /* @escapeNotVerified */ echo __('Availability') ?>">
+                        <span><?php /* @escapeNotVerified */ echo __('Out of stock') ?></span>
+                    </p>                <?php endif; ?>
+            <?php endif; ?>
+        </div>
+        <?php endif; ?>
+    <?php foreach ($block->getChildNames() as $childName): ?>
+        <?php echo $block->getChildHtml($childName, false); ?>
+    <?php endforeach; ?>
+       </fieldset>
+</div>

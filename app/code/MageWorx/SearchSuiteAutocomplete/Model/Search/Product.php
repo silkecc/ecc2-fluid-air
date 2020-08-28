@@ -44,6 +44,8 @@ class Product implements \MageWorx\SearchSuiteAutocomplete\Model\SearchInterface
      */
     private $queryFactory;
 
+    protected $commMessagingHelper;
+
     /**
      * Product constructor.
      *
@@ -58,7 +60,8 @@ class Product implements \MageWorx\SearchSuiteAutocomplete\Model\SearchInterface
         SearchHelper $searchHelper,
         LayerResolver $layerResolver,
         ObjectManager $objectManager,
-        QueryFactory $queryFactory
+        QueryFactory $queryFactory,
+        \Epicor\Comm\Helper\Messaging $commMessagingHelper
     ) {
     
         $this->helperData = $helperData;
@@ -66,6 +69,7 @@ class Product implements \MageWorx\SearchSuiteAutocomplete\Model\SearchInterface
         $this->layerResolver = $layerResolver;
         $this->objectManager = $objectManager;
         $this->queryFactory = $queryFactory;
+        $this->commMessagingHelper = $commMessagingHelper;
     }
 
     /**
@@ -85,7 +89,8 @@ class Product implements \MageWorx\SearchSuiteAutocomplete\Model\SearchInterface
         $productResultFields[] = ProductFields::URL;
 
         $productCollection = $this->getProductCollection($queryText);
-
+        $this->commMessagingHelper->sendMsq($productCollection, 'product_list');
+        
         foreach ($productCollection as $product) {
             $responseData['data'][] = array_intersect_key($this->getProductData($product), array_flip($productResultFields));
         }
@@ -147,7 +152,7 @@ class Product implements \MageWorx\SearchSuiteAutocomplete\Model\SearchInterface
         $data = [
             ProductFields::NAME => $product->getName(),
             ProductFields::SKU => $product->getSku(),
-            ProductFields::IMAGE => $product->getSmallImage(),
+            ProductFields::IMAGE => $product->getImage(),
             ProductFields::REVIEWS_RATING => $product->getReviewsRating(),
             ProductFields::SHORT_DESCRIPTION => $product->getShortDescription(),
             ProductFields::DESCRIPTION => $product->getDescription(),

@@ -1,0 +1,300 @@
+/**
+ * Copyright © 2010-2018 Epicor Software Corporation: All Rights Reserved
+ */
+
+.qop-productlist {
+    clear:left;
+    margin-bottom:10px;
+    padding:10px 10px 45px;
+}
+.qop-productlist .qop-sort {
+    /*margin-left:35%;*/
+    max-width:30%;
+    margin-left: 20px;
+}
+.qop-productlist .qop-sort label {
+    vertical-align: middle;
+}
+
+.qop-productlist.thinner {
+    float:left;
+    margin-right: 15px;
+    width: 100%;
+}
+
+.qop-search form {
+    float:left;
+    display:block;
+    width:50%;
+}
+
+.qop-search form p{
+    float: left;
+}
+.qop-search form p label{
+    line-height: 18px;
+    font-size: 12px;
+}
+.qop-search form p button.pro-line-search{
+    margin-top: 18px;
+}
+
+.qop-list li {
+    padding:5px;
+    overflow:hidden;
+    position:relative;
+}
+
+.qop-list li .product-image, .qop-list li .product-shop {
+    float:left;
+    display:inline;
+}
+
+.qop-list li .product-image {
+    margin-right:5px;
+}
+
+.qop-list li .product-shop {
+    width:340px;
+    width:420px;
+}
+
+.qop-list li .addtobasketform {
+    position:absolute;
+    bottom:5px;
+    right:5px;
+}
+
+.qop-list .skus li {
+    border:none;
+    padding:0;
+}
+
+.qop-list th {
+    text-align:center;
+}
+
+.qop-list th.productname {
+    width:35%;
+    min-width: 160px;
+}
+
+.qop-list th.qty {
+    width:20%;
+}
+
+.qop-list td {
+    border-top:1px solid #ccc;
+    padding: 0.4em 0;
+}
+
+.qop-list tr {
+    border-left:1px solid #fff;
+    margin: 0.4em 0;
+}
+
+.qop-list tbody tr:hover {
+    border:1px solid #bbb;
+    border-top:1px solid #bbb;
+    -webkit-box-shadow: 3px 4px 4px 0 rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 3px 4px 4px 0 rgba(0, 0, 0, 0.3);
+    -ms-box-shadow: 3px 4px 4px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 3px 4px 4px 0 rgba(0, 0, 0, 0.3);
+}
+
+.qop-list td.action input.addall_qty {
+    width: 50%;
+}
+
+.qop-list th, .qop-list td {
+    vertical-align: middle;
+}
+.qop-list td ul{
+    padding-left: 10px;
+}
+.qop-productlist .note-msg,
+.qop-basket .cart-empty {
+    padding-left:10px;
+}
+
+.qop-list tr.grouped td.image,
+.qop-list tr.grouped td.productname {
+    border-bottom: 0;
+    border-top: 0;
+}
+
+.qop-list tr td.productname a.product-image {
+    float:left;
+    margin:0 0.5em;
+    padding-top:0;
+}
+
+.qop-list tr td.productname a {
+    margin-top:2.5em;
+}
+
+.qop-list tr.groupedfirst td.image,
+.qop-list tr.groupedfirst td.productname {
+    border-bottom: 0;
+}
+
+.qop-list tr.groupedlast td.image,
+.qop-list tr.groupedlast td.productname {
+    border-top: 0;
+}
+
+.qop-list .last {
+    border-right:none;
+}
+
+.qop-list .stock,
+.qop-list .price,
+.qop-list .action, 
+.qop-list .uom {
+    text-align:center;
+}
+
+.qop-list .action  {
+    white-space: nowrap;
+}
+
+.qop-list .action label {
+    display:block;
+}
+
+.qop-list p.availability {
+    display:inline;
+}
+
+.qop-clear {
+    clear:both;
+}   
+
+#add_all_to_basket {
+    float: right;
+    margin-top:10px;
+}
+
+#clear_configure_basket {
+    float: right;
+    margin-top:10px;
+    margin-right:10px;
+}
+
+.csvincluded form {
+    width:48%;
+    float:left;
+    margin:5px;
+}
+
+.csvincluded form .fieldset {
+    min-height:105px;
+}
+
+
+.qop-search .form-list input.input-text {
+    width: 80%;
+}
+
+#qa_next_page{
+    float:right;
+}
+
+select#list_id {
+    width:80%;
+}
+
+iframe {
+    width:100%;
+    height:80%;
+}
+.quickorderpad-form-results.page-layout-1column .toolbar-products {
+        position: static;    padding: 10px 0;
+}
+.quickorderpad-form-results.page-layout-1column .toolbar-products .pages, .quickorderpad-form-results.page-layout-1column .toolbar-products .limiter{
+        display:inline;
+}
+.dealerconnect-inventory-billofmaterials .modal-inner-wrap {
+    width: 35%;
+}
+#dealerconnect_bom_built .qa_custompart, #dealerconnect_bom_add_table .qa_custompart {
+    margin: 0 5px;
+}
+.bom_linesearch .qop-productlist ul {
+    margin-bottom: 0;
+}
+.part-not-found {
+    clear: both;
+    display: block;
+    width: 75%;
+    text-align: center;
+    color: #e02b27;
+}
+.code-not-found {
+    width: 94%;
+}
+.desc-not-found {
+    width: 90%;
+}
+.code-not-found, .desc-not-found {
+    text-align: right;
+}
+#dealerconnect_bom_built, #dealerconnect_bom_add {
+    overflow-x: hidden;
+}
+.dropbtn {
+    cursor: pointer;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    cursor: pointer;
+}
+.dropdown-content a {
+    color: #006bb4;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-content a:hover {
+    text-decoration: underline;
+}
+@media (max-width: 768px) {
+    .qop-search form p button.pro-line-search,.qop-list .action{
+        padding: 7px 10px;
+    }
+    .category-products .toolbar-amount{
+        display: none;
+    }
+    .qop-productlist .category-products{
+        overflow-x: scroll;
+    }
+    .quickorderpad-form-results.page-layout-1column .toolbar-products .pages{
+            float: left;
+    }
+    .quickorderpad-form-results.page-layout-1column .toolbar-products .limiter{
+        float: left;
+        margin-top: 15px;
+    }
+
+    
+
+}
+
+@media only screen and (max-width: 639px){
+    .qop-search form{
+        float: none;
+        width: 100%;
+    }
+    .qop-productlist .pages .pages-items{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .qop-productlist .qop-sort{
+        max-width: 100%;
+        margin-top: 15px;
+        float: left;
+        margin-left: 0px;
+    }
+}

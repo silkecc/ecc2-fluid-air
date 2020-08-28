@@ -4,9 +4,7 @@
  * See COPYING.txt for license details.
  */
 namespace Codazon\ProductLabel\Model\ResourceModel;
-
 use Magento\Catalog\Model\Attribute\LockValidatorInterface;
-
 /**
  * Catalog attribute resource model
  *
@@ -14,8 +12,35 @@ use Magento\Catalog\Model\Attribute\LockValidatorInterface;
  */
 class Attribute extends \Magento\Eav\Model\ResourceModel\Entity\Attribute
 {
-
-
+    /**
+     * Eav config
+     *
+     * @var \Magento\Eav\Model\Config
+     */
+//    protected $_eavConfig;
+    /**
+     * @var LockValidatorInterface
+     */
+//    protected $attrLockValidator;
+    /**
+     * @param \Magento\Framework\Model\ResourceModel\Db\Context $context
+     * @param \Magento\Store\Model\StoreManagerInterface $storeManager
+     * @param \Magento\Eav\Model\ResourceModel\Entity\Type $eavEntityType
+     * @param \Magento\Eav\Model\Config $eavConfig
+     * @param LockValidatorInterface $lockValidator
+     * @param string $connectionName
+     */
+/**    public function __construct(
+        \Magento\Framework\Model\ResourceModel\Db\Context $context,
+        \Magento\Store\Model\StoreManagerInterface $storeManager,
+        \Magento\Eav\Model\ResourceModel\Entity\Type $eavEntityType,
+        \Magento\Eav\Model\Config $eavConfig,
+        $connectionName = null
+    ) {
+        $this->_eavConfig = $eavConfig;
+        parent::__construct($context, $storeManager, $eavEntityType, $connectionName);
+    }
+**/
     /**
      * Perform actions before object save
      *
@@ -30,7 +55,6 @@ class Attribute extends \Magento\Eav\Model\ResourceModel\Entity\Attribute
         }*/
         return parent::_beforeSave($object);
     }
-
     /**
      * Perform actions after object save
      *
@@ -42,7 +66,6 @@ class Attribute extends \Magento\Eav\Model\ResourceModel\Entity\Attribute
         $this->_clearUselessAttributeValues($object);
         return parent::_afterSave($object);
     }
-
     /**
      * Clear useless attribute values
      *
@@ -52,7 +75,6 @@ class Attribute extends \Magento\Eav\Model\ResourceModel\Entity\Attribute
     protected function _clearUselessAttributeValues(\Magento\Framework\Model\AbstractModel $object)
     {
 		$origData = $object->getOrigData();
-
         if ($object->isScopeGlobal() && isset(
             $origData['is_global']
         ) && \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_GLOBAL != $origData['is_global']
@@ -66,10 +88,8 @@ class Attribute extends \Magento\Eav\Model\ResourceModel\Entity\Attribute
                 $this->getConnection()->delete($object->getBackendTable(), $delCondition);
             }
         }
-
         return $this;
     }
-
     /**
      * Delete entity
      *
@@ -82,7 +102,6 @@ class Attribute extends \Magento\Eav\Model\ResourceModel\Entity\Attribute
         if (!$object->getEntityAttributeId()) {
             return $this;
         }
-
         $select = $this->getConnection()->select()->from(
             $this->getTable('eav_entity_attribute')
         )->where(
@@ -90,13 +109,11 @@ class Attribute extends \Magento\Eav\Model\ResourceModel\Entity\Attribute
             (int)$object->getEntityAttributeId()
         );
         $result = $this->getConnection()->fetchRow($select);
-
         if ($result) {
             $attribute = $this->_eavConfig->getAttribute(
                 \Magento\Catalog\Model\Product::ENTITY,
                 $result['attribute_id']
             );
-
             try {
                 $this->attrLockValidator->validate($attribute, $result['attribute_set_id']);
             } catch (\Magento\Framework\Exception\LocalizedException $exception) {
@@ -104,7 +121,6 @@ class Attribute extends \Magento\Eav\Model\ResourceModel\Entity\Attribute
                     __('Attribute \'%1\' is locked. %2', $attribute->getAttributeCode(), $exception->getMessage())
                 );
             }
-
             $backendTable = $attribute->getBackend()->getTable();
             if ($backendTable) {
                 $select = $this->getConnection()->select()->from(
@@ -114,7 +130,6 @@ class Attribute extends \Magento\Eav\Model\ResourceModel\Entity\Attribute
                     'attribute_set_id = ?',
                     $result['attribute_set_id']
                 );
-
                 $clearCondition = [
                     'attribute_id =?' => $attribute->getId(),
                     'entity_id IN (?)' => $select,
@@ -122,10 +137,8 @@ class Attribute extends \Magento\Eav\Model\ResourceModel\Entity\Attribute
                 $this->getConnection()->delete($backendTable, $clearCondition);
             }
         }
-
         $condition = ['entity_attribute_id = ?' => $object->getEntityAttributeId()];
         $this->getConnection()->delete($this->getTable('eav_entity_attribute'), $condition);
-
         return $this;
     }
 }

@@ -4,7 +4,6 @@
  * See COPYING.txt for license details.
  */
 namespace Codazon\ThemeOptions\Model\ResourceModel;
-
 /**
  * Core Resource Resource Model
  *
@@ -21,7 +20,6 @@ class Config extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
     {
         $this->_init('codazon_config_data', 'config_id');
     }
-
     /**
      * Save config value
      *
@@ -31,7 +29,7 @@ class Config extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
      * @param int $scopeId
      * @return $this
      */
-    public function saveConfig($path, $value, $scope, $scopeId)
+	public function saveConfig($path, $value, $scope, $scopeId)
     {
         $connection = $this->getConnection();
         $select = $connection->select()->from(
@@ -47,9 +45,7 @@ class Config extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
             $scopeId
         );
         $row = $connection->fetchRow($select);
-
         $newData = ['scope' => $scope, 'scope_id' => $scopeId, 'path' => $path, 'value' => $value];
-
         if ($row) {
             $whereCondition = [$this->getIdFieldName() . '=?' => $row[$this->getIdFieldName()]];
             $connection->update($this->getMainTable(), $newData, $whereCondition);
@@ -58,7 +54,6 @@ class Config extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
         }
         return $this;
     }
-
     /**
      * Delete config value
      *
@@ -67,7 +62,7 @@ class Config extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
      * @param int $scopeId
      * @return $this
      */
-    public function deleteConfig($path, $scope, $scopeId)
+	public function deleteConfig($path, $scope, $scopeId)
     {
         $connection = $this->getConnection();
         $connection->delete(

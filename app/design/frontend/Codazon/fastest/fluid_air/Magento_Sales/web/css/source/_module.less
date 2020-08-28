@@ -1,0 +1,985 @@
+// /**
+//  * Copyright © 2015 Magento. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Common
+//  ---------------------------------------------
+
+& when (@media-common = true) {
+
+.order-links {
+    padding-left:0px;
+    .item {
+        line-height: @tab-control__height;
+        margin: 0 0 -1px;
+        strong {
+            // .lib-css(background, @tab-control__active__background-color);
+            border: @border-width__base solid @border-color__base;
+            display: block;
+            font-weight: @tab-control__font-weight;
+            padding: 0 20px;
+            color:@btn_default_border;
+        }
+        a {
+            .lib-css(background, @tab-control__background-color);
+            .lib-css(color, @tab-control__color);
+            border: @border-width__base solid @border-color__base;
+            display: block;
+            font-weight: @tab-control__font-weight;
+            padding: 0 20px;
+            &:hover {
+                .lib-css(background, @tab-control__hover__background-color);
+                .lib-css(text-decoration, @tab-control__hover__text-decoration);
+            }
+        }
+    }
+}
+
+.order-details-items {
+    border: @border-width__base solid @border-color__base;
+    .lib-css(background, @main_block_background);
+    margin-bottom: @indent__base;
+    padding: @indent__s;
+    .order-title {
+        border-bottom: @border-width__base solid @border-color__base;
+        padding: 0 @indent__s @indent__s @indent__s;
+        > strong {
+            .lib-font-size(24);
+            font-weight: @font-weight__light;
+        }
+        .action {
+            display: inline-block;
+        }
+    }
+    .table-wrapper {
+        margin: 0;
+        + .actions-toolbar {
+            display: none;
+        }
+        // margin-bottom: @indent__l;
+        margin-bottom: 0px;
+        &:last-child {
+            margin-bottom:0px;
+        }
+    }
+    .table-order-items {
+        > thead > tr > th {
+            border-bottom: 1px solid @border-color__base;
+        }
+        tbody {
+            & + tbody {
+                border-top: 1px solid @border-color__base;
+            }
+            .account & {
+                tr:nth-child(even) td {
+                    background: none;
+                }
+            }
+            td {
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
+            .col {
+                &.label {
+                    font-weight: @font-weight__bold;
+                    padding-top: 0;
+                    padding-bottom: 5px;
+                }
+                &.options {
+                    padding: 0 0 15px;
+                }
+            }
+            > .item-parent {
+                td {
+                    padding-bottom: 5px;
+                }
+                + tr td {
+                    padding-top: 5px;
+                }
+            }
+            .item-options-container td {
+                padding-top: 0;
+                padding-bottom: 15px;
+            }
+        }
+        .product-item-name {
+            margin: 0 0 10px;white-space: initial;
+        }
+    }
+    .item-options {
+        margin: 0;
+        dt {
+            margin: 0;
+        }
+        dd {
+            margin: 0 0 15px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+        &.links {
+            dt {
+                display: inline-block;
+                &:after {
+                    content: ": ";
+                }
+            }
+            dd {
+                margin: 0;
+            }
+        }
+    }
+
+    thead {
+        .col.qty {
+            text-align: center;
+        }
+    }
+    .col {
+        &.price,
+        &.subtotal {
+            &:extend(.abs-incl-excl-tax all);
+        }
+        &.name {
+            padding-top: 16px;
+        }
+    }
+    .cart-tax-total {
+        &:extend(.abs-tax-total all);
+        &-expanded {
+            &:extend(.abs-tax-total-expanded all);
+        }
+    }
+    tfoot {
+        &:extend(.abs-account-summary all);
+    }
+    .action {
+        &.show {
+            .lib-icon-font(
+                @icon-down,
+                @_icon-font-size: 10px,
+                @_icon-font-line-height: 10px,
+                @_icon-font-text-hide: true,
+                @_icon-font-position: after,
+                @_icon-font-display: inline-block
+            );
+            .lib-css(color, @primary__color);
+            &.expanded {
+                .lib-icon-font-symbol(
+                    @_icon-font-content: @icon-up,
+                    @_icon-font-position: after
+                );
+            }
+        }
+    }
+    .product-item-name {
+        .lib-font-size(14);
+    }
+    .items-qty {
+        &:extend(.abs-reset-list all);
+        .item {
+            white-space: nowrap;
+        }
+        .title {
+            &:after {
+                content: ": ";
+            }
+        }
+    }
+
+    .action.print {
+        display: none;
+    }
+}
+
+.block-order-details {
+    &-comments {
+        margin: 0 0 40px;
+        .comment-date {
+            font-weight: @font-weight__semibold;
+        }
+        .comment-content {
+            line-height: 1.6;
+            margin: 0 0 20px;
+        }
+    }
+
+    &-view {
+        .block-content .box {
+            margin-bottom: 30px;
+        }
+        .box-title {
+            font-weight: @font-weight__semibold;
+        }
+        .box-content {
+            .payment-method {
+                .title {
+                    font-weight: @font-weight__regular;
+                }
+                .content {
+                    margin: 0;
+                    > strong {
+                        font-weight: @font-weight__regular;
+                        &:after {
+                            content: ': ';
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &-gift-message {
+        .column.main .order-details-items & {
+            margin: 40px 0 0;
+        }
+        + .actions-toolbar {
+            display: none;
+        }
+    }
+}
+
+.order-tracking {
+    .order-title + & {
+        border-bottom: @border-width__base solid @border-color__base;
+    }
+    margin: 0;
+    padding: 20px 0;
+    .tracking-title {
+        display: inline-block;
+    }
+    .tracking-content {
+        display: inline-block;
+        margin: 0 0 0 5px;
+    }
+}
+
+.order-actions-toolbar {
+    margin-bottom: 25px;
+    .action {
+        margin-right: 30px;
+        &.print {
+            &:extend(.abs-action-print all);
+            display: none;
+            margin: 0;
+        }
+    }
+}
+
+.order-status {
+    &:extend(.abs-status all);
+}
+
+.account,
+[class^="sales-guest-"],
+.sales-guest-view,
+.magento-rma-guest-returns {
+    &:extend(.abs-title-orders all);
+    &.rtl-layout .page-main .page-title-wrapper .page-title{
+        margin-right:0;
+        margin-left:25px;
+    }
+}
+
+.form-orders-search {
+    &:extend(.abs-forms-general-desktop all);
+    .field {
+        &.email,
+        &.zip {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.block-reorder {
+    .block-title {
+        &:extend(.abs-block-widget-title all);
+    }
+
+    .actions-toolbar {
+        margin: 17px 0;
+    }
+
+    .product-item-name {
+        display: inline-block;
+    }
+    .product-item {
+        .label {
+            &:extend(.abs-visually-hidden all);
+        }
+        .field.item {
+            display: inline-block;
+        }
+    }
+}
+
+//
+//  Guest order view page
+//  ---------------------------------------------
+
+[class^="sales-guest-"],
+.sales-guest-view {
+    .column.main {
+        .block:not(.widget) {
+            &:extend(.abs-account-blocks all);
+        }
+    }
+}
+
+.magento-rma-guest-returns {
+    .column.main {
+        .order-details-items {
+            .table-wrapper {
+                .data.table {
+                    &:extend(.abs-table-striped all);
+                }
+            }
+        }
+    }
+}
+
+}
+
+//
+//  Mobile
+//  ---------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+    .table-wrapper {
+        &.orders-recent {
+            &:extend(.abs-account-table-margin-mobile all);
+        }
+    }
+    .table-wrapper {
+        &.orders-recent {
+            &:extend(.abs-no-border-top all);
+        }
+    }
+    .account {
+        .admin__data-grid-wrap thead tr.data-grid-filters td{
+            width: 100% !important;
+            float: none !important;
+        }
+        .table-order-items {
+            tbody tr {
+                display: block;
+            }
+            .product-item-name {
+                display: inline-block;
+                margin: 0;
+            }
+            .action.show {
+                margin-top: 0;
+            }
+            .col {
+                &.actions,
+                &.options {
+                    &:extend(.abs-col-no-prefix all);
+                }
+            }
+        }
+    }
+    // .account,
+    [class^="sales-guest-"],
+    .sales-guest-view {
+        &:extend(.abs-title-orders-mobile all);
+    }
+    .order-details-items {
+        .table-wrapper {
+            &:extend(.abs-no-border-top all);
+        }
+        .order-title {
+            strong {
+                display: block;
+            }
+        }
+        .action {
+            .lib-css(margin-top, @indent__s);
+        }
+        .items-qty {
+            display: inline-block;
+            vertical-align: top;
+        }
+        .col {
+            &.price,
+            &.subtotal {
+                .price-including-tax,
+                .price-excluding-tax {
+                    display: inline-block;
+                }
+            }
+        }
+        .data.table .col.options {
+            padding: 0 10px 15px;
+            &:before {
+                display: none;
+            }
+        }
+        .table-order-items .options-label {
+            &:extend(.abs-no-display-s all);
+        }
+        .options-label + .item-options-container,
+        .item-options-container + .item-options-container {
+            &:before {
+                content: attr(data-th) ":";
+                display: block;
+                font-weight: @font-weight__bold;
+                padding-left: 10px;
+            }
+            .col {
+                .lib-font-size(12);
+                padding: 0 10px;
+                &:first-child {
+                    padding-top: 3px;
+                }
+                &:last-child {
+                    padding-bottom: 20px;
+                }
+            }
+        }
+    }
+}
+
+//
+//  Desktop
+//  ---------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__s) {
+    .order-details-items {
+        .order-title {
+            .action {
+                margin: 12px 0 0 30px;
+                &.track {
+                    float: right;
+                }
+            }
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .table-wrapper.orders-recent {
+        &:extend(.abs-account-table-margin-desktop all);
+    }
+
+    .order-links {
+        &:extend(.abs-add-clearfix-desktop all);
+        .item {
+            float: left;
+            margin: 0 @tab-control__margin-right 0 0;
+            a {
+                padding: 0 @tab-control__padding-right;
+            }
+            strong {
+                border-bottom: 0;
+                margin-bottom: -1px;
+                color: @btn_default_border;
+                // line-height:1.35;    
+                // padding: @tab-control__padding-top @tab-control__padding-right @tab-control__padding-bottom+1 @tab-control__padding-left;
+            }
+        }
+    }
+
+    .order-actions-toolbar {
+        .action.print {
+            display: block;
+            float: right;
+        }
+    }
+
+    .account,
+    [class^="sales-guest-"],
+    .sales-guest-view {
+        &:extend(.abs-title-orders-desktop all);
+        .column.main .block.block-order-details-view {
+            &:extend(.abs-add-clearfix-desktop all);
+            .block-content:not(.widget) .box {
+                &:extend(.abs-add-box-sizing-desktop all);
+                clear: none;
+                float: left;
+                width: 100%/2;
+                &:nth-child(2n+1){
+                    clear: both;
+                }
+            }
+        }
+    }
+
+    .order-status {
+        &:extend(.abs-status-desktop all);
+    }
+
+    .block-order-details-comments {
+        margin: 0 0 60px;
+        .comment-date {
+            clear: left;
+            float: left;
+            margin-right: 50px;
+            max-width: 90px;
+        }
+        .comment-content {
+            overflow: hidden;
+        }
+    }
+
+    .order-details-items {
+        margin-top: -1px;
+        padding: 10px;
+        .col {
+            &.name {
+                padding-left: 0;
+            }
+            &.price {
+                text-align: center;
+            }
+            &.subtotal {
+                text-align: right;
+            }
+        }
+        tbody td {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        tfoot {
+            .amount,
+            .mark {
+                text-align: right;
+            }
+        }
+        &.ordered {
+            .order-title {
+                display: none;
+            }
+        }
+    }
+    .table-order-items {
+        tbody {
+            .col {
+                &.label,
+                &.value {
+                    padding-left: 0;
+                }
+            }
+        }
+        &.invoice,
+        &.shipment {
+            .col.qty {
+                text-align: center;
+            }
+        }
+        &.creditmemo {
+            .col {
+                &.qty,
+                &.discount,
+                &.subtotal {
+                    text-align: center;
+                }
+                &.total {
+                    text-align: right;
+                }
+            }
+        }
+    }
+}
+@media (min-width: 1024px), print{
+    body.account{
+        &:extend(.abs-title-orders-desktop all);
+        .column.main .block.block-order-details-view {
+            &:extend(.abs-add-clearfix-desktop all);
+            .block-content:not(.widget) .box {
+                &:extend(.abs-add-box-sizing-desktop all);
+                clear: none;
+                float: left;
+                width: 100%/4;
+                &:nth-child(2n+1){
+                    clear: none;
+                }
+                &:nth-child(4n+1){
+                    clear: both;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 1023px), print{
+    .account.page-layout-2columns-left .table-wrapper table.data-grid#customerconnect_servicecalls_table tr.data-grid-filters td.col-requested_date .range-line.date button{right: 0px;}
+    .account.page-layout-2columns-left table.data-grid tr.data-grid-filters{
+        background: #ebebeb;
+        td{
+            .range{
+                .range-line{
+                    float: left;
+                    width: 50%;
+                }
+                .range-line.date{
+                    float: left;
+                    width: 50%;
+                    position: relative;
+                    input{
+                        width: calc(~'(100% - 28px)') !important;
+                        margin: 0px;max-width: 500px !important;
+                    }
+                    button{
+                        right: 0px;
+                        padding: 0px 5px;
+                    }
+                }
+            }
+        }
+    }
+    .table-styling() {
+        border: none;
+        thead{
+            width: 100%;
+            display: block;
+        }
+        thead tr {
+            display: block;
+            th{
+                display: none;
+            }
+            &.data-grid-filters{
+                
+                td{
+                    display: block;
+                    padding: 5px 10px;
+                    width: 50%;
+                    float: left;
+                    &:before{
+                        padding-right: 10px;
+                        content: attr(data-th) ': ';
+                        display: inline-block;
+                        color: #111111;
+                        font-weight: 600;
+                    }
+                    // &.col-actual_date,&.col-scheduled_date,&.col-requested_date,&.col-start_date,&.col-end_date,&.col-order_date,&.col-invoice_date,
+                    // &.col-due_date,&.col-rma_date,&.col-last_ordered_date,&.col-quote_date,&.col-payment_date,&.col-shipment_date{
+                    //      input{
+                    //         margin: 0px;
+                    //         max-width: 500px;
+                    //     }
+                    //     .range-line.date{
+                    //         float: left;
+                    //         width: 50%;
+                    //         position: relative;
+                    //         input{
+                    //             width: calc(~'(100% - 28px)') !important;
+                    //             margin: 0px;max-width: 500px !important;
+                    //         }
+                    //         button{
+                    //             right: 0px;
+                    //             padding: 0px 5px;
+                    //         }
+                    //     }
+                    // }
+                    // &.col-order_number,&.col-original_value,&.col-outstanding_value,
+                    // &.col-revision_level,&.col-quantities_ordered,&.col-quantities_returned,
+                    // &.col-call_duration,&.col-quote_number,&.col-total_qty_ordered,
+                    // &.col-last_order_number{
+                    //     .range{
+                    //         &:extend(.abs-add-clearfix-desktop all);
+                    //     }
+                    //     .range-line{
+                    //         float: left;
+                    //         width: 50%;
+                    //     }
+                    // }
+                    &.no-display{
+                        display: none;
+                    }
+                }
+                td[data-th=hide],td[data-th="Created By"],td[data-th="Action"]{
+                    display: none;
+                    &:before{
+                        display: none;
+                    }
+                }
+            }
+        }
+        tbody{
+            display: block;
+            width: 100%;
+            clear: left;
+        }
+        tbody tr{
+            display: block;
+            width: 100%;
+            border-bottom: 1px solid #ebebeb;
+            padding-bottom:5px;
+            padding-top:5px;
+            &:last-child {
+                border-bottom: 0px solid #ebebeb;
+                padding-bottom:10px;
+            }
+            th{
+                display: none;
+            }
+            td,th{
+                border-bottom: none;
+                display: block;
+                padding: 5px 10px;
+                text-align: left !important;
+                border: none;
+                max-width: 1000px;
+                &:before{
+                    padding-right: 10px;
+                    content: attr(data-th) ': ';
+                    display: inline-block;
+                    color: #111111;
+                    font-weight: 600;
+                }
+                select{
+                    display: inline-block;
+                    width: auto;
+                }
+                &.empty{
+                    display: none;
+                }
+            }
+            td{
+                text-align: left !important;
+                // &:first-child {
+                //     padding-top: 10px;
+                // }
+                // &:last-child {
+                //     border-bottom: 1px solid #ebebeb;
+                //     padding-bottom: 10px;
+                // }
+                &.no-display{
+                    display: none;
+                }
+            }
+            &.data-grid-tr-no-data{
+                td:before{
+                    display: none;
+                }
+            }
+            // &:last-child {
+            //     td{
+            //         &:last-child {
+            //             border-bottom: 0px;
+            //         }
+            //     }
+            // }
+        }
+    }
+    
+    .account{
+        &.customerconnect-shipments-index{
+            .table-wrapper table.data-grid{
+                thead tr{
+                    td,th{
+                        padding: 10px 5px;
+                    }
+                }
+                tbody tr{
+                    td{
+                        padding: 10px 5px;
+                    }
+                }
+            }
+        }
+        .column.main{
+            .box-info{
+                div.content-header table tr td{
+                    padding:10px 10px 10px 0;width: auto !important;
+                }
+                div.boxed-content .table-wrapper thead th *{
+                    font-size: 14px;
+                }
+            }
+        }
+        &.customerconnect-dashboard-index,&.customerconnect-account-index{
+            .column.main .box-info{
+                padding-top: 10px;  
+                float: none;
+                width: 100%;
+            }
+            .table-wrapper.admin__data-grid-wrap {
+                padding: 15px 15px 40px;
+            }
+        }
+        &.epicor-lists-lists-index,&.epicor_lists-lists-index,&.customerconnect-account-index,&.customerconnect-orders-index,
+        &.customerconnect-invoices-index,&.customerconnect-rmas-index,&.customerconnect-servicecalls-index,
+        &.customerconnect-rfqs-index,&.customerconnect-recentpurchases-index,&.customerconnect-payments-index,
+        &.customerconnect-shipments-index,&.customerconnect-skus-index,&.epicor-lists-lists-edit,&.customerconnect-returns-index{
+            .column.main{
+                .table-wrapper{
+                    padding-top: 15px;
+                }
+                .boxed-content{
+                    .table-wrapper{
+                        padding-top: 0px;
+                        padding-right: 0px;
+                        padding-left: 0px;
+                    }
+                }
+            }
+            .admin__data-grid-toolbar{
+                button{
+                    padding: 4px 6px;
+                    span{
+                        font-weight: normal;
+                        font-size: 14px;
+                    }
+                }
+                .admin__data-grid-header-row{
+                    // margin-top: 0px;
+                    // margin-right: 10px;
+                    .admin__data-grid-export{
+                        // margin-top: 0px;
+                    }
+                    &._massaction{
+                        margin-top: -59px;
+                    }
+                }
+            }
+            .data-table,#customer_account_contacts_list_table,#customerconnect_orders_table,#customerconnect_returns_table,
+            .table-wrapper table.data-grid,#customerconnect_rmas_table,#customerconnect_servicecalls_table,
+            #customerconnect_rfqs_table,#customerconnect_rph_table,#customerconnect_payments_table,#list_products_table,
+            #customerconnect_shipments_table,#customerconnect_skus_table,#customerconnect_invoices_grid_table{
+                .table-styling();
+            }
+            #customer_account_agedbalances_list_table{
+
+            }
+            #customer_account_contacts_list_table{
+                thead tr{
+                    &.data-grid-filters{
+                        td{
+                            position: relative;
+                            padding-bottom: 20px;
+                            div{
+                                position: absolute;
+                                bottom: 3px;
+                                left: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+            .table-wrapper table.data-grid{
+                tbody{
+                    tr{
+                        td{
+                            text-align: left;
+                            border: none;
+                            // &:last-child{
+                            //     border-bottom: 1px solid #ebebeb;
+                            // }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media (max-width: 1024px), print{
+    .account{
+        &.quotes-manage-view{
+            #product-lines{
+                thead th{
+                    font-size: 14px;
+                }       
+            }
+        }
+        &.epicor-lists-lists-index,&.epicor_lists-lists-index{
+            table{
+                thead tr{
+                    td,th{
+                        padding: 11px 5px;
+                    }    
+                }
+                tbody tr{
+                    td{
+                        padding: 11px 5px;
+                        .range-line.date{
+                            input{
+                                margin: 0px;
+                            }
+                        }
+                    }
+                }
+            }
+            
+        }
+        &.customerconnect-orders-index,&.customerconnect-invoices-index,&.customerconnect-payments-index,
+        &.customerconnect-shipments-index{
+            .admin__data-grid-pager-wrap {
+                width: 100%;
+            }
+        }
+        &.page-layout-2columns-left .admin__data-grid-toolbar{
+            padding-bottom: 0px;
+            clear: both;
+            overflow: hidden;
+            .admin__data-grid-pager-wrap{
+                display: block;
+                margin-bottom: 10px;
+                width: 100% !important;
+            }
+            .admin__data-grid-header-row{
+                margin-left:3px;
+                .admin__data-grid-export{
+                    // margin-top: -1px;
+                    margin-right: 0px;
+                    padding-right: 0px
+                }
+                &._massaction{
+                    margin-top: -63px;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 768px), print{
+    .account.page-layout-2columns-left.customerconnect-account-index #custom_address_allowed_button{
+        margin-top: 0px;
+    }
+    .account.quotes-manage-view{
+        #product-lines{
+            display: block;
+            thead tr th{
+                display: none;
+            }
+            tbody{
+                tr{
+
+                    td{
+                        width: 100%;
+                        float: none;
+                        display: block;
+                        text-align: left;
+                        &:before{
+                            padding-right: 10px;
+                            content: attr(data-th) ": ";
+                            display: inline-block;
+                            color: rgb(17, 17, 17);
+                            font-weight: 600;
+                        }
+                        .product-name{
+                            display: inline-block;
+                        }
+                    }
+                }
+            }
+        }
+        .order-info-box.box-left.quote_details{
+            float: none;
+            width: 100%;
+            &:after{
+                display: none;
+            }
+        }
+        .order-info-box.box-right.quote_options{
+            float: none;
+            width: 100%;
+            padding-top: 20px;
+            &:after{
+                display: none;
+            }
+        }
+    }
+}

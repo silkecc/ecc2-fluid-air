@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2010-2018 Epicor Software Corporation: All Rights Reserved
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <body>
+        <referenceBlock name="catalogsearch.leftnav">
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">Codazon_AjaxLayeredNavPro::layer/view.phtml</argument>
+            </action>
+        </referenceBlock>
+    </body>
+</page>

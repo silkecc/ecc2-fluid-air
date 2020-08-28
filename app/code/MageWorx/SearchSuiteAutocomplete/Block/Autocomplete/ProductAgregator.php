@@ -50,15 +50,13 @@ class ProductAgregator extends \Magento\Framework\DataObject
         CatalogProductHelper $catalogHelperProduct,
         StringUtils $string,
         UrlHelper $urlHelper,
-        FormKey $formKey,
-        \Magento\Catalog\Helper\Image $productImageHelper
+        FormKey $formKey
     ) {
         $this->productBlock = $productBlock;
         $this->catalogHelperProduct = $catalogHelperProduct;
         $this->string = $string;
         $this->urlHelper = $urlHelper;
         $this->formKey = $formKey;
-        $this->productImageHelper = $productImageHelper;
     }
 
     /**
@@ -88,8 +86,18 @@ class ProductAgregator extends \Magento\Framework\DataObject
      */
     public function getSmallImage()
     {
-        return $this->productImageHelper->init($this->getProduct(),'category_page_grid')->resize(65,65)->getUrl();
-        //return $this->catalogHelperProduct->getSmallImageUrl($this->getProduct());
+        return $this->catalogHelperProduct->getSmallImageUrl($this->getProduct());
+    }
+
+
+    /**
+     * Retrieve product image url
+     *
+     * @return bool|string
+     */
+    public function getImage()
+    {
+        return $this->catalogHelperProduct->getImageUrl($this->getProduct());
     }
 
     /**

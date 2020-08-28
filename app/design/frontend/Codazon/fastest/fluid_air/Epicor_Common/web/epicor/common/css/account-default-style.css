@@ -1,0 +1,639 @@
+/**
+ * Copyright © 2010-2018 Epicor Software Corporation: All Rights Reserved
+ */
+
+.account .ui-datepicker .ui-datepicker-calendar th{
+    font-size: 12px;
+}
+
+.col-2.box-info.box-account {
+    float: none;
+    width: 100%;
+}
+
+.col-1.box-info.box-account {
+    float: none;
+    width: 100%;
+}
+
+.col-1, .col-full {
+    clear: both;
+}
+
+.col-full {
+    padding-top:5px;
+}
+
+.col-full.block {
+    margin-top:10px;
+}
+.account.customerconnect-account-index .box-info.box-account.col-1,
+.account.customerconnect-account-index .box-info.box-account.col-2{
+    float: none;width: 100%;
+}
+.account.customerconnect-account-index .box-info.box-account.col-1 .block-title,
+.account.customerconnect-account-index .box-info.box-account.col-2 .block-title{
+    border-bottom: 1px solid #c6c6c6;
+    padding-bottom: 10px;
+}
+/*.account.customerconnect-account-index .box-info.box-account.col-1.block,
+.account.customerconnect-account-index .box-info.box-account.col-2.block{
+    width:45%;float: left;
+}*/
+.col2-set .col-1, 
+.col2-set .col-2 
+{
+    width:45%;float: left;
+}
+
+.col2-set .col-full {
+    clear:both;
+}
+
+
+fieldset#erp_custom_address_allowed {
+    border: none;
+}
+
+#custom_address_allowed_button {
+    float:right;
+}
+
+select#custom_address_allowed {
+    width: auto;
+}
+#line-add {
+    margin: 0px;
+    padding: 10px;
+    background: #f5f5f5;
+}
+#line-add .la_field input.input-text {
+    width: 60%;
+}
+#line-add .la_field {
+    display: block;
+    float: left;
+    width: 20%;
+    text-align: right;
+}
+button#lineadd-add {
+    clear: left;
+    display: block;margin-top: 10px;
+}
+.buttons-set {
+    clear: both;
+    margin: 10px 0 0;
+    padding-top: 10px;
+    border-top: 1px solid #ededed;
+    text-align: right;
+}
+.box-info #line-add .la_row{
+    height: auto;
+}
+.la_row {
+    clear: both;
+    padding: 5px;
+    overflow: hidden;
+    /*height: 20px;*/
+    border-top: 1px solid #e4e4e4;
+}
+/*grid header*/
+.page-control-input {
+    width: 40px!important;
+    text-align: center;
+}
+.page-limit-select{
+    width: auto!important;
+}
+.export-select{
+    width:auto!important;
+}
+button.action-previous:before {
+    align-content: center;
+    font-weight: bold;
+    content: "<";
+    line-height: 20px;
+    display: block;
+}
+
+button.action-previous{
+    width: 38px;
+    height: 31px;
+}
+.action-previous span {
+    clip: rect(0, 0, 0, 0);
+    overflow: hidden;
+    position: absolute;
+    display: none;
+    visibility: hidden;
+}
+button.action-next:before {
+    align-content: center;
+    font-weight: bold;
+    content: ">";
+    line-height: 20px;
+    display: block;
+}
+button.action-next {
+    width: 38px;
+    height: 31px;
+}
+.action-next span {
+    clip: rect(0, 0, 0, 0);
+    overflow: hidden;
+    position: absolute;
+    display: none;
+    visibility: hidden;
+}
+.admin__data-grid-pager-wrap {
+    display: inline-block;
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+}
+.admin__data-grid-pager {
+    display: inline;
+}
+.admin__data-grid-header-row {
+    float: right;
+    display: inline-flex;
+    /*margin-top: -1px;*/
+    margin-left: 3px;
+}
+
+.admin__data-grid-pager button{
+    margin-bottom: 3px;
+}
+.admin__data-grid-header-row._massaction {
+    clear:both;
+    float: left;
+    width:70%;
+}
+
+.admin__data-grid-header-row._massaction .admin__grid-massaction {
+    width:80%;
+    padding-top: 0.8em;
+}
+
+.admin__data-grid-header-row._massaction div.admin__grid-massaction form {
+    display:block;
+    float:right;
+    width:80%;
+}
+.admin__data-grid-header-row._massaction div.admin__grid-massaction div.mass-select-wrap {
+    display:block;
+    float:right;
+    width:20%;
+}
+
+.admin__data-grid-header-row._massaction div.admin__grid-massaction form select {
+    float:left;
+    width:40%;
+}
+
+.admin__data-grid-header-row._massaction .admin__grid-massaction-form label {
+    display:none;
+}
+
+
+.admin__data-grid-export {
+    padding-right: 22px;
+}
+.admin__data-grid-export button.task{
+    margin-bottom: 5px;
+}
+select#customerconnect_orders_export {
+    width: 30%;
+    line-height: 18px;
+}
+label.admin__control-support-text {
+    left: 117px;
+    padding-top: 0px;
+}
+.admin__control-support-text {
+    padding-top: 8px;
+    display: inline-block;
+}
+
+tr._clickable {
+    cursor: pointer;
+}
+
+/*end*/
+
+
+.vcard span, .vcard dd {
+    display:block;
+}
+
+.vcard dt.sec {
+    float:left;
+}
+
+.box-info div.col-count-2 {
+    column-count: 2;
+    -moz-column-count: 2;
+    -webkit-column-count: 2;
+}
+
+.box-info div.col-count-3 {
+    column-count: 3;
+    -moz-column-count: 3;
+    -webkit-column-count: 3;
+}
+
+.box-info .info-list p {
+    width:100%;
+    margin: 5px 0;
+}
+
+.box-info .info-list span.label {
+    /*width:40%;*/
+    padding-right:5px;
+    text-align:left;
+    font-weight:bold;
+    display:inline-block;
+}
+
+.box-info .info-list span.value {
+    display:inline-block;
+    width: 55%;
+}
+
+.box-info .info-list input {
+    padding:2px;
+    width:50%;
+}
+
+.box-info .info-list select {
+    width:51%;
+}
+
+.box-info .info-list-extra span.value {
+    display: block;
+    height:100px;
+    overflow:auto;
+    border: 1px solid #D9DDE3;
+    text-align:left;
+    padding:5px;
+}
+
+.box-info .info-list-extra {
+    clear: both;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.box-info .info-list-extra span.label {
+    display:block;
+    font-weight:bold;
+}
+
+
+.box-info .double-list li {
+    width:50%;
+    float:left;
+}
+
+.box-info .triple-list li {
+    width:33.333%;
+    float:left;
+}
+
+.box-info .quad-list li {
+    width:25%;
+    float:left;
+}
+
+.grid table tfoot.totals td {
+    border-width: 0 1px 0 0;
+}
+
+.grid table tfoot.totals tr.grand_total td {
+    font-weight: bold;
+}
+
+.grid input[type="text"],
+.grid select {
+    padding:2px;
+    width:96%;
+}
+
+#window-overlay #window-overlay-content {
+    max-width:500px;
+    margin: 0 auto;
+    text-align:left;
+    position:fixed;
+    padding:5px;
+    position:fixed;
+    z-index:1000;
+    background:#fff;
+    border:1px solid #666;
+    overflow:hidden;
+}
+
+#window-overlay h2 {
+    margin-bottom:0;
+}
+
+#window-overlay .formfields {
+    overflow: auto;
+    position:relative;
+    margin-top:12px;
+    margin-bottom:0;
+    padding-right: 20px;
+    clear: both;
+}
+
+#window-overlay-close {
+    position:absolute;
+    top:10px;
+    right:10px;
+    z-index: 100;
+}
+
+#window-overlay li {
+    margin-top:5px;
+}
+
+
+#window-overlay .box-account {
+    margin:0;
+    padding-top:0;
+    padding-bottom:0;
+}
+
+#window-overlay .buttonbar {
+    text-align:right;
+    margin-top:10px;
+}
+
+input:disabled,
+textarea:disabled
+{
+    border: 1px solid #ddd;
+    background:#fefefe;
+    color:#aaa;
+} 
+
+.content-header {
+    clear:both;
+}
+#loading-mask {
+    z-index:2000;
+}
+
+.box-form label {
+    width:45%;
+    padding-right:15px;
+    margin-top:5px;
+    text-align:right;
+    font-weight:bold;
+    display:inline-block;
+}
+
+thead .expand-content,
+tbody .expand-content {
+    display:none;
+}
+
+
+.expand-table tr {
+    background-color:#fff;
+}
+
+.expand-table tr.even,
+tr.even .expand-table tr {
+    background-color: #f6f6f6;
+}
+
+tr.even .expand-table tr.even {
+    background-color:#fff;
+}
+
+.expand-table thead tr.headings {
+    background:url("../../common/css/images/sort_row_bg.gif") repeat-x scroll 0 50% transparent;
+}
+
+.list-link {
+    float:right;
+}
+.box-info.box-account.col-full .form-buttons #add-shipping-address,#add-contact {float:right;min-width: 109px;}
+#add_contact.action-default.scalable.add{float:right}
+#add_attachment.action-default.scalable.add{float:right}
+.column.main > form#rfq_update .box-info.box-account div.page-actions{float:right}
+#add_salesrep.action-default.scalable.add{float:right}
+
+.column.main .box-account.block { margin-bottom:10px }
+
+.box-info.box-account .info-list{padding-left:0px;}
+.boxed-content { overflow-x:auto }
+
+div.block-collapsible-nav-title.customerconnect-nav-title {
+    height:auto;
+    width:auto;
+    /*margin:0.5em;*/
+    font-size:20px;
+    font-weight: 300;
+    line-height: 1.1;
+    position:relative;
+}
+
+div.content-header table  {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+div.content-header table tr  {
+    border-bottom: 1px solid #c6c6c6;
+    padding-bottom: 10px;
+}
+
+div.content-header table tr h3 {
+    font-size: 18px;
+    font-weight: 300;
+    margin:0;
+    float:left;
+}
+
+div.content-header table tr .view_all {    
+    line-height: 1.1;
+    margin-top: 7px;
+    margin-left: 10px;
+    /*top: -22px;*/
+    float: right;
+}
+
+.admin__data-grid-toolbar {
+    margin: 0 0.5%;
+}
+
+.table-wrapper {
+    /*margin: 5px 0.5%;*/
+}
+
+table.data-grid thead {
+    background: #f5f5f5;
+    margin-top:10px;
+}
+table.data-grid{
+    font-size: 1.3rem;
+}
+
+#button_bar {
+    float: right;
+    position: relative;
+    top: -50px;
+    margin:0;
+    height: 1px;
+}
+.account.customerconnect-orders-details #button_bar {
+    top: -55px;
+}
+.account.customerconnect-rfqs-new #button_bar {
+    top: -70px;
+}
+.account.customerconnect-orders-details .column.main{
+    /*padding-top: 50px;*/
+}
+#button_bar.rfq_buttons {
+    top: -55px;
+}
+
+#button_bar form {
+    display:inline-block;
+}
+
+table.data-grid .a-right {
+    text-align: right;
+} 
+
+.data-grid .data-grid-filters td ._has-datepicker + .ui-datepicker-trigger {
+    height: 2.8rem;
+    margin-left: -3.2rem;
+    width: 2.8rem; 
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-left: 5px;
+    position: absolute;
+    margin-top: 0;
+}
+
+#window-overlay {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.35);
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 990;
+}
+
+.order-actions-toolbar .action {
+    margin-right: 0px;
+}
+.admin__data-grid-export button {
+        /*margin-bottom: 4px;    */
+}
+
+#customerconnect_payments_table .a-right.col-payment_amount{text-align: left}
+#customerconnect_servicecalls_table td.col-service_status select{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  background-image: url('../images/arrows-bg.svg'), linear-gradient(#e3e3e3, #e3e3e3), linear-gradient(#adadad, #adadad);
+  background-position: calc(100% - 12px) -34px, 100%, calc(100% - 3.2rem) 0;
+  background-size: auto, 3.2rem 100%, 1px 100%;
+  background-repeat: no-repeat;
+  max-width: 100%;
+  min-width: 8.5rem;
+  padding-bottom: 0rem;
+  padding-right: 4.4rem;
+  padding-top: 0rem;
+  transition: border-color 0.1s linear;}
+
+h3.icon-head.head-customer-dashboard-orders{float:left;}
+div.content-header table tr td{width:100% !important;text-transform: uppercase;}
+
+#customerconnect_servicecalls_table [data-column="call_number"]{width:8%}
+#customerconnect_servicecalls_table [data-column="call_type"]{width:9%} 
+#customerconnect_servicecalls_table [data-column="service_status"]{width: 99px;padding-left:0;padding-right:0}
+
+
+.salesrep-discount-container{
+    width: 120px;
+}
+.left{
+    float:left;
+}
+.discount-currency{
+    float: left;
+    margin-left: -10px;
+}
+
+.discount{
+    width: 87% !important;
+}
+
+.discount-percentage{
+    margin-left: 3px;
+}
+
+.reset-discount{
+    width: 128px;
+}
+
+
+.epicor-salesrep-account-index #search_iframe {
+    position: absolute; 
+    padding: 10px;
+}
+@media (max-width: 890px){
+    .box-info div.col-count-3 {
+        column-count: 1;
+        -moz-column-count: 1;
+        -webkit-column-count: 1;
+    }
+}
+@media only screen and (max-width: 767px){
+    .discount{
+        width: 100% !important;
+    }
+    .block.discount .title:after{
+        content: "\f107";
+        font-family: FontAwesome;
+        float: right;
+    }
+    .block.discount.active .title:after{
+        content: "\f106";
+    }
+    .col-1.box-info.box-account,.col-2.box-info.box-account{
+        width: 100%;float: none;
+    }
+    .account.customerconnect-account-index .box-info.box-account.col-1.block,
+    .account.customerconnect-account-index .box-info.box-account.col-2.block{
+        width: 100%;float: none;
+    }
+    div.box-info div.col-count-3 {
+        column-count: 1;
+        -moz-column-count: 1;
+        -webkit-column-count: 1;
+    }
+}
+
+@media only screen and (max-width: 639px){
+    .table tfoot > tr:first-child th, .table tfoot > tr:first-child td{
+        border-top: 0px;
+    }
+    table.data-grid .a-right{
+        text-align: left !important;
+    }
+}
+
+@media (min-width: 1110px), print{
+    .account.page-layout-2columns-left .admin__data-grid-toolbar .admin__data-grid-pager-wrap{
+        width: auto;
+    }
+}
