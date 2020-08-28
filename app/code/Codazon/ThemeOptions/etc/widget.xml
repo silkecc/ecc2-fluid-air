@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © 2016 Codazon. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+	<widget id="codazon_instagramphotos" class="Codazon\ThemeOptions\Block\Instagramphotos" is_email_compatible="true" placeholder_image="Codazon_ThemeOptions::images/codazon_instagramphotos.png" ttl="86400">
+		<label translate="true">Codazon Instagram Recent Photos</label>
+		<description translate="true">Get Photos List From Your Instagram</description>
+		<parameters>
+			<parameter name="access_token" xsi:type="text" required="false" visible="true" sort_order="10">
+			 	<label translate="true">Access Token</label>
+				<description translate="true"><![CDATA[Please login to your Instagram account. Then go to <a target="_blank" href='http://instagram.pixelunion.net'>http://instagram.pixelunion.net</a> to get access token.]]></description>
+			</parameter>
+            <parameter name="use_user_id" xsi:type="select" visible="true"
+                       source_model="Magento\Config\Model\Config\Source\Yesno" sort_order="20">
+                <label translate="true">Get Instagram images by user id instead of access token</label>
+                <description translate="true"><![CDATA[If you cannot get access token, you can use "User Id" to fetch Instagram images. Please go to <a target="_blank" href='https://codeofaninja.com/tools/find-instagram-user-id'>https://codeofaninja.com/tools/find-instagram-user-id</a> to get user id.]]></description>
+            </parameter>
+            <parameter name="user_id" xsi:type="text" required="false" visible="true" sort_order="21">
+			 	<label translate="true">User Id</label>
+			</parameter>
+			<parameter name="custom_template" xsi:type="text" required="false" visible="true">
+				<label translate="true">Template</label>
+				<description translate="true"><![CDATA[Leave blank to use default template.]]></description>
+			</parameter>
+            <parameter name="max_items" xsi:type="text" visible="true" sort_order="95">
+            	<label translate="true">Max Items</label>
+                <description translate="true"><![CDATA[Used for some templates, not for all.]]></description>
+                <value>1</value>
+            </parameter>
+		</parameters>
+	</widget>
+</widgets>
