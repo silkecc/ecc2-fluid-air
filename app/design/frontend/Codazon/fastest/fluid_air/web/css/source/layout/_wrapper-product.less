@@ -68,17 +68,23 @@
 				position: absolute; left: 0; top: -50px; 
 				//background:#fff;
 				.abs-scale(~'0, 0');
-				width: 100%; 
+				// width: 100%; 
 				//height: 100%; 
 				z-index:2;
+				left: -11px;
+			    right: -11px;
+			    width: auto;
 				.abs-transition();
 				.cdz-buttons-container{
 				text-align:center;
+				padding: 10px;
+			    // border: 1px solid #ebebeb;
+			    border-top: 0px;
 				//display:table;
 				//height:100%;
 				//width:100%;
 				form{ 
-					display:inline-block; 
+					display:block; 
 				}
 				.cdz-buttons-inner{ 
 					//display: table-cell;
@@ -123,7 +129,8 @@
 	.products-grid{
 		.product-item .product-item-info{
 			.cdz-buttons-container{
-				padding-top:10px;
+				padding-bottom: 10px;
+			    padding-top: 0px;
 				form{ 
 					display:inline-block; 
 				}

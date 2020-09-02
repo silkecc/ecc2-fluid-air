@@ -302,31 +302,31 @@
                 </field>
                 <field id="f_default" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInStore="1">
                     <label>Font Default</label>
-					<comment>Default: 400 13px/1.35 Poppins, Helvetica Neue, Verdana, Arial, sans-serif</comment>
+					<comment>Default: 400 14px/1.35 Poppins-Regular, Helvetica Neue, Verdana, Arial, sans-serif</comment>
                 </field>
                 <field id="f_h1" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInStore="1">
                     <label>Font H1</label>
-					<comment>Default: 500 24px/1.35 Poppins, Helvetica Neue, Verdana, Arial, sans-serif</comment>
+					<comment>Default: 500 24px/1.35 Poppins-Bold, Helvetica Neue, Verdana, Arial, sans-serif</comment>
                 </field>
                 <field id="f_h2" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInStore="1">
                     <label>Font H2</label>
-					<comment>Default: 500 20px/1.35 Poppins, Helvetica Neue, Verdana, Arial, sans-serif</comment>
+					<comment>Default: 500 20px/1.35 Poppins-Bold, Helvetica Neue, Verdana, Arial, sans-serif</comment>
                 </field>
                 <field id="f_h3" translate="label comment" type="text" sortOrder="60" showInDefault="1" showInStore="1">
                     <label>Font H3</label>
-					<comment>Default: 500 18px/1.35 Poppins, Helvetica Neue, Verdana, Arial, sans-serif</comment>
+					<comment>Default: 500 18px/1.35 Poppins-Bold, Helvetica Neue, Verdana, Arial, sans-serif</comment>
                 </field>
                 <field id="f_h4" translate="label comment" type="text" sortOrder="70" showInDefault="1" showInStore="1">
                     <label>Font H4</label>
-					<comment>Default: 500 16px/1.35 Poppins, Helvetica Neue, Verdana, Arial, sans-serif</comment>
+					<comment>Default: 500 16px/1.35 Poppins-Bold, Helvetica Neue, Verdana, Arial, sans-serif</comment>
                 </field>
                 <field id="f_h5" translate="label comment" type="text" sortOrder="80" showInDefault="1" showInStore="1">
                     <label>Font H5</label>
-					<comment>Default: 400 14px/1.35 Poppins, Helvetica Neue, Verdana, Arial, sans-serif</comment>
+					<comment>Default: 400 14px/1.35 Poppins-Regular, Helvetica Neue, Verdana, Arial, sans-serif</comment>
                 </field>
                 <field id="f_h6" translate="label comment" type="text" sortOrder="90" showInDefault="1" showInStore="1">
                     <label>Font H6</label>
-					<comment>Default: 400 11px/1.55 Poppins, Helvetica Neue, Verdana, Arial, sans-serif</comment>
+					<comment>Default: 400 11px/1.55 Poppins-Regular, Helvetica Neue, Verdana, Arial, sans-serif</comment>
                 </field>
                 <field id="f_special" translate="label comment" type="text" sortOrder="100" showInDefault="1" showInStore="1">
                     <label>Font Title Block Home Page</label>
@@ -334,7 +334,7 @@
                 </field>
                 <field id="f_note" translate="label comment" type="text" sortOrder="110" showInDefault="1" showInStore="1">
                     <label>Font Note</label>
-					<comment>Default: 400 12px/1.35 Poppins, Helvetica Neue, Verdana, Arial, sans-serif</comment>
+					<comment>Default: 400 12px/1.35 Poppins-Regular, Helvetica Neue, Verdana, Arial, sans-serif</comment>
                 </field>
             </group>
             <group id="page" translate="label" type="text" sortOrder="20" showInDefault="1" showInStore="1">
@@ -350,7 +350,7 @@
                 <field id="page_background" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInStore="1">
                 	<label>Page Background</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #edeeef</comment>
+					<comment>Default: #EBEBEB</comment>
                 </field>
                 <field id="page_background_file" translate="label comment" type="image" sortOrder="40" showInDefault="1" showInStore="1">
                     <label>Page Background Image</label>
@@ -369,7 +369,7 @@
                 <field id="header_background" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInStore="1">
                 	<label>Header Background</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #febd17</comment>
+					<comment>Default: #ffffff</comment>
                 </field>
                 <field id="header_background_file" translate="label comment" type="image" sortOrder="20" showInDefault="1" showInStore="1">
                     <label>Header Background Image</label>
@@ -385,47 +385,47 @@
                 <field id="header_top_background" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInStore="1">
                 	<label>Header Top Background</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #edeeef</comment>
+					<comment>Default: #EBEBEB</comment>
                 </field>
                 <field id="header_text" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInStore="1">
                 	<label>Header Text</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #333333</comment>
+					<comment>Default: #202020</comment>
                 </field>
                 <field id="header_hover_text" translate="label comment" type="text" sortOrder="60" showInDefault="1" showInStore="1">
                 	<label>Header Hover Text</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #febd17</comment>
+					<comment>Default: #202020</comment>
                 </field>
                 <field id="header_border" translate="label comment" type="text" sortOrder="70" showInDefault="1" showInStore="1">
                 	<label>Header Border</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #eeeeee</comment>
+					<comment>Default: #ffffff</comment>
                 </field>
                 <field id="header_cart_background" translate="label comment" type="text" sortOrder="80" showInDefault="1" showInStore="1">
                 	<label>Header Cart Background</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #febd17</comment>
+					<comment>Default: #ffffff</comment>
                 </field>
                 <field id="header_text_cart" translate="label comment" type="text" sortOrder="90" showInDefault="1" showInStore="1">
                 	<label>Header Text Cart</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #ffffff</comment>
+					<comment>Default: #202020</comment>
                 </field>
                 <field id="header_search_text" translate="label comment" type="text" sortOrder="100" showInDefault="1" showInStore="1">
                 	<label>Header Search Text</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #ffffff</comment>
+					<comment>Default: #202020</comment>
                 </field>
                 <field id="header_search_background" translate="label comment" type="text" sortOrder="110" showInDefault="1" showInStore="1">
                 	<label>Header Search Background</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #febd17</comment>
+					<comment>Default: #ffffff</comment>
                 </field>
                 <field id="header_drop_text" translate="label comment" type="text" sortOrder="120" showInDefault="1" showInStore="1">
                 	<label>Header Drop Text</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #999</comment>
+					<comment>Default: #202020</comment>
                 </field>
                 <field id="header_drop_background" translate="label comment" type="text" sortOrder="130" showInDefault="1" showInStore="1">
                 	<label>Header Drop Background</label>
@@ -438,12 +438,12 @@
                 <field id="menu_background" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInStore="1">
                 	<label>Menu Background</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #000000</comment>
+					<comment>Default: #005A9C</comment>
                 </field>
                 <field id="menu_hover_background" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInStore="1">
                 	<label>Menu Hover Background</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #000000</comment>
+					<comment>Default: #005A9C</comment>
                 </field>
                 <field id="menu_text" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInStore="1">
                 	<label>Menu Text</label>
@@ -453,16 +453,16 @@
                 <field id="menu_hover_text" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInStore="1">
                 	<label>Menu Hover Text</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #febd17</comment>
+					<comment>Default: #ffffff</comment>
                 </field>
                 <field id="menu_border" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInStore="1">
                 	<label>Menu Border</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #d7dada</comment>
+					<comment>Default: #005A9C</comment>
                 </field>
                 <field id="menu_font" translate="label comment" type="text" sortOrder="60" showInDefault="1" showInStore="1">
                 	<label>Menu Font</label>
-					<comment>Default: 500 12px/1.35 Poppins, Helvetica Neue, Verdana, Arial, sans-serif</comment>
+					<comment>Default: 500 16px/1.35 Poppins-Medium, Helvetica Neue, Verdana, Arial, sans-serif</comment>
                 </field>
 				
 				<field id="vermenu_background" translate="label comment" type="text" sortOrder="70" showInDefault="1" showInStore="1">
@@ -503,26 +503,26 @@
                 <field id="menu_drop_text_title" translate="label comment" type="text" sortOrder="140" showInDefault="1" showInStore="1">
                 	<label>Menu Drop Text_title</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #000000</comment>
+					<comment>Default: #202020</comment>
                 </field>
                 <field id="menu_drop_text" translate="label comment" type="text" sortOrder="150" showInDefault="1" showInStore="1">
                 	<label>Menu Drop Text</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #444444</comment>
+					<comment>Default: #202020</comment>
                 </field>
                 <field id="menu_drop_hover_text" translate="label comment" type="text" sortOrder="160" showInDefault="1" showInStore="1">
                 	<label>Menu Drop Hover Text</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #febd17</comment>
+					<comment>Default: #202020</comment>
                 </field>
                 <field id="menu_drop_border" translate="label comment" type="text" sortOrder="170" showInDefault="1" showInStore="1">
                 	<label>Menu Drop Border</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #dfdfdf</comment>
+					<comment>Default: #ffffff</comment>
                 </field>
                 <field id="menu_drop_font" translate="label comment" type="text" sortOrder="180" showInDefault="1" showInStore="1">
                 	<label>Menu Drop Font</label>
-					<comment>Default: 400 12px/1.35 Poppins, Helvetica Neue, Verdana, Arial, sans-serif</comment>
+					<comment>Default: 400 16px/1.35 Poppins-Medium, Helvetica Neue, Verdana, Arial, sans-serif</comment>
                 </field>
             </group>
             <group id="main" translate="label" type="text" sortOrder="50" showInDefault="1" showInStore="1">
@@ -530,7 +530,7 @@
                 <field id="main_background" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInStore="1">
                 	<label>Main Background</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #edeeef</comment>
+					<comment>Default: #EBEBEB</comment>
                 </field>
                 <field id="main_block_background" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInStore="1">
                 	<label>Main Block Background</label>
@@ -545,82 +545,82 @@
                 <field id="main_block_text_background" translate="label comment" type="text" sortOrder="60" showInDefault="1" showInStore="1">
                 	<label>Main Block Text Background</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #000000</comment>
+					<comment>Default: #ffffff</comment>
                 </field>
                 <field id="main_text" translate="label comment" type="text" sortOrder="70" showInDefault="1" showInStore="1">
                 	<label>Main Text</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #000000</comment>
+					<comment>Default: #202020</comment>
                 </field>
                 <field id="main_hover_text" translate="label comment" type="text" sortOrder="80" showInDefault="1" showInStore="1">
                 	<label>Main Hover Text</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #febd17</comment>
+					<comment>Default: #202020</comment>
                 </field>
                 <field id="main_title_text" translate="label comment" type="text" sortOrder="90" showInDefault="1" showInStore="1">
                 	<label>Main Title Text</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #000000</comment>
+					<comment>Default: #202020</comment>
                 </field>
                 <field id="main_alink_text" translate="label comment" type="text" sortOrder="100" showInDefault="1" showInStore="1">
                 	<label>Main Alink Text</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #a1a1a1</comment>
+					<comment>Default: #202020</comment>
                 </field>
                 <field id="main_note_text" translate="label comment" type="text" sortOrder="110" showInDefault="1" showInStore="1">
                 	<label>Main Note Text</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #a1a1a1</comment>
+					<comment>Default: #202020</comment>
                 </field>
                 <field id="main_productname_text" translate="label comment" type="text" sortOrder="120" showInDefault="1" showInStore="1">
                 	<label>Main Product Name Text</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #282828</comment>
+					<comment>Default: #202020</comment>
                 </field>
                 <field id="main_price_text" translate="label comment" type="text" sortOrder="130" showInDefault="1" showInStore="1">
                 	<label>Main Price Text</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #333333</comment>
+					<comment>Default: #202020</comment>
                 </field>
                 <field id="main_hover_text_box" translate="label comment" type="text" sortOrder="140" showInDefault="1" showInStore="1">
                 	<label>Main Hover Text Box</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #ffffff</comment>
+					<comment>Default: #202020</comment>
                 </field>
                 <field id="main_border" translate="label comment" type="text" sortOrder="150" showInDefault="1" showInStore="1">
                 	<label>Main Border</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #e0e0e0</comment>
+					<comment>Default: #EBEBEB</comment>
                 </field>
                 <field id="main_title_border" translate="label comment" type="text" sortOrder="160" showInDefault="1" showInStore="1">
                 	<label>Main Title Border</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #febd17</comment>
+					<comment>Default: #EBEBEB</comment>
                 </field>
                 <field id="main_tab_background" translate="label comment" type="text" sortOrder="170" showInDefault="1" showInStore="1">
                 	<label>Main Tab Background</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #555555</comment>
+					<comment>Default: #ffffff</comment>
                 </field>
                 <field id="main_tab_hover_background" translate="label comment" type="text" sortOrder="180" showInDefault="1" showInStore="1">
                 	<label>Main Tab Hover Background</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #febd17</comment>
+					<comment>Default: #ffffff</comment>
                 </field>
                 <field id="main_tab_text" translate="label comment" type="text" sortOrder="190" showInDefault="1" showInStore="1">
                 	<label>Main Tab Text</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #ffffff</comment>
+					<comment>Default: #v</comment>
                 </field>
                 <field id="main_tab_hover_text" translate="label comment" type="text" sortOrder="200" showInDefault="1" showInStore="1">
                 	<label>Main Tab Hover Text</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #ffffff</comment>
+					<comment>Default: #202020</comment>
                 </field>
                 <field id="main_tab_border" translate="label comment" type="text" sortOrder="210" showInDefault="1" showInStore="1">
                 	<label>Main Tab Border</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #febd17</comment>
+					<comment>Default: #EBEBEB</comment>
                 </field>
             </group>
             <group id="footer" translate="label" type="text" sortOrder="60" showInDefault="1" showInStore="1">
@@ -628,7 +628,7 @@
                 <field id="footer_background" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInStore="1">
                 	<label>Footer Background</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #1b232e</comment>
+					<comment>Default: #333333</comment>
                 </field>
                 <field id="footer_background_file" translate="label comment" type="image" sortOrder="20" showInDefault="1" showInStore="1">
                     <label>Footer Background Image</label>
@@ -644,17 +644,17 @@
                 <field id="footer_top_background" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInStore="1">
                 	<label>Footer Top Background</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #f6f6f6</comment>
+					<comment>Default: #ffffff</comment>
                 </field>
                 <field id="footer_bottom_background" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInStore="1">
                 	<label>Footer Bottom Background</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #1b232e</comment>
+					<comment>Default: #333333</comment>
                 </field>
                 <field id="footer_text" translate="label comment" type="text" sortOrder="60" showInDefault="1" showInStore="1">
                 	<label>Footer Text</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #999999</comment>
+					<comment>Default: #ffffff</comment>
                 </field>
                 <field id="footer_title_text" translate="label comment" type="text" sortOrder="70" showInDefault="1" showInStore="1">
                 	<label>Footer Title Text</label>
@@ -664,12 +664,12 @@
                 <field id="footer_hover_text" translate="label comment" type="text" sortOrder="80" showInDefault="1" showInStore="1">
                 	<label>Footer Hover Text</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #febd17</comment>
+					<comment>Default: #ffffff</comment>
                 </field>
                 <field id="footer_border" translate="label comment" type="text" sortOrder="90" showInDefault="1" showInStore="1">
                 	<label>Footer Border</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #383e48</comment>
+					<comment>Default: #333333</comment>
                 </field>
             </group>
             <group id="button" translate="label" type="text" sortOrder="70" showInDefault="1" showInStore="1">
@@ -677,7 +677,7 @@
                 <field id="btn_default_background" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInStore="1">
                 	<label>Default Background</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #555555</comment>
+					<comment>Default: #005A9C</comment>
                 </field>
                 <field id="btn_default_text" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInStore="1">
                 	<label>Default Text</label>
@@ -687,16 +687,16 @@
                 <field id="btn_default_border" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInStore="1">
                 	<label>Default Border</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #555555</comment>
+					<comment>Default: #005A9C</comment>
                 </field>
                 <field id="btn_default_font" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInStore="1">
                 	<label>Default Font</label>
-					<comment>Default: 500 14px/1.35 Poppins, Helvetica Neue, Verdana, Arial, sans-serif</comment>
+					<comment>Default: 500 15px/1.35 Poppins-Bold, Helvetica Neue, Verdana, Arial, sans-serif</comment>
                 </field>
                 <field id="btn_primary_background" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInStore="1">
                 	<label>Primary Background</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #febd17</comment>
+					<comment>Default: #005A9C</comment>
                 </field>
                 <field id="btn_primary_text" translate="label comment" type="text" sortOrder="60" showInDefault="1" showInStore="1">
                 	<label>Primary Text</label>
@@ -706,11 +706,11 @@
                 <field id="btn_primary_border" translate="label comment" type="text" sortOrder="70" showInDefault="1" showInStore="1">
                 	<label>Primary Border</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #febd17</comment>
+					<comment>Default: #005A9C</comment>
                 </field>
                 <field id="btn_primary_font" translate="label comment" type="text" sortOrder="80" showInDefault="1" showInStore="1">
                 	<label>Primary Font</label>
-					<comment>Default: 500 14px/1.35 Poppins, Helvetica Neue, Verdana, Arial, sans-serif</comment>
+					<comment>Default: 500 15px/1.35 Poppins-Bold, Helvetica Neue, Verdana, Arial, sans-serif</comment>
                 </field>
                 <field id="btn_productitem_background" translate="label comment" type="text" sortOrder="90" showInDefault="1" showInStore="1">
                 	<label>Product Item Background</label>
@@ -720,35 +720,35 @@
 				<field id="btn_productitem_text" translate="label comment" type="text" sortOrder="100" showInDefault="1" showInStore="1">
                 	<label>Product Item Text</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #555555</comment>
+					<comment>Default: #005A9C</comment>
                 </field>
                 <field id="btn_productitem_border" translate="label comment" type="text" sortOrder="110" showInDefault="1" showInStore="1">
                 	<label>Product Item Border</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #febd17</comment>
+					<comment>Default: #005A9C</comment>
                 </field>
                 <field id="btn_productitem_font" translate="label comment" type="text" sortOrder="120" showInDefault="1" showInStore="1">
                 	<label>Product Item Font</label>
-					<comment>Default: 500 14px/1.35 Poppins, Helvetica Neue, Verdana, Arial, sans-serif</comment>
+					<comment>Default: 500 15px/1.35 Poppins-Bold, Helvetica Neue, Verdana, Arial, sans-serif</comment>
                 </field>
                 <field id="btn_hover_background" translate="label comment" type="text" sortOrder="130" showInDefault="1" showInStore="1">
                 	<label>Fover Background</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #febd17</comment>
+					<comment>Default: #ffffff</comment>
                 </field>
                 <field id="btn_hover_text" translate="label comment" type="text" sortOrder="140" showInDefault="1" showInStore="1">
                 	<label>Hover Text</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #ffffff</comment>
+					<comment>Default: #005A9C</comment>
                 </field>
                 <field id="btn_hover_border" translate="label comment" type="text" sortOrder="150" showInDefault="1" showInStore="1">
                 	<label>Hover Border</label>
                 	<frontend_class>colour</frontend_class>
-					<comment>Default: #febd17</comment>
+					<comment>Default: #005A9C</comment>
                 </field>
                 <field id="btn_hover_font" translate="label comment" type="text" sortOrder="160" showInDefault="1" showInStore="1">
                 	<label>Hover Font</label>
-					<comment>Default: 500 14px/1.35 Poppins, Helvetica Neue, Verdana, Arial, sans-serif</comment>
+					<comment>Default: 500 15px/1.35 Poppins-Bold, Helvetica Neue, Verdana, Arial, sans-serif</comment>
                 </field>
             </group>
         </section>          

@@ -19,10 +19,21 @@
 		}
 		.items > li{
 			text-transform:uppercase;
+			a,a:active{
+				color: #202020;
+				font-family: 'Poppins-Bold';
+			}
+		}
+		strong{
+			text-transform: none;
+		    color: #202020;
+		    font-size: 14px
 		}
     }
 	.breadcrumbs .item:not(:last-child):after{
 		.abs-iconfont('\f178', 14px);
+		color: #202020;margin: 0 4px;
+		line-height: 17px;
 		.rtl-layout &{
 			content:'\f177';
 		}

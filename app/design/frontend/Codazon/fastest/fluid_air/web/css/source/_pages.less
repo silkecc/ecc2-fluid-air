@@ -43,11 +43,13 @@
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
     .pages {
         & &-items {
-            display: block;
-            padding: 2px 40px 0;
             position: relative;
             white-space: normal;
             z-index: 1;
+            clear: both;
+            overflow: hidden;
+            display: inline-block;
+            padding: 0px;
         }
         &-item-previous {
             //left: 0;

@@ -8,31 +8,34 @@
 //--------------------------------------
 .lib-font-face(
     @family-name: @font-family-name__base,
-    @font-path: '@{baseDir}fonts/opensans/light/opensans-300',
-    @font-weight: 300,
-    @font-style: normal
+    @font-path: '@{baseDir}fonts/poppins-regular-webfont'
 );
 
 .lib-font-face(
-    @family-name: @font-family-name__base,
-    @font-path: '@{baseDir}fonts/opensans/regular/opensans-400',
-    @font-weight: 400,
-    @font-style: normal
+    @family-name: @font-family-name__light,
+    @font-path: '@{baseDir}fonts/poppins-light-webfont'
+);
+.lib-font-face(
+    @family-name: @font-family-name__medium,
+    @font-path: '@{baseDir}fonts/poppins-medium-webfont'
+);
+.lib-font-face(
+    @family-name: @font-family-name__bold,
+    @font-path: '@{baseDir}fonts/poppins-bold-webfont'
+);
+.lib-font-face(
+    @family-name: @font-family-name__semibold,
+    @font-path: '@{baseDir}fonts/poppins-semibold-webfont'
+);
+.lib-font-face(
+    @family-name: @font-family-name__thin,
+    @font-path: '@{baseDir}fonts/poppins-thin-webfont'
+);
+.lib-font-face(
+    @family-name: @font-family-name__italic,
+    @font-path: '@{baseDir}fonts/poppins-italic-webfont'
 );
 
-.lib-font-face(
-    @family-name: @font-family-name__base,
-    @font-path: '@{baseDir}fonts/opensans/semibold/opensans-600',
-    @font-weight: 600,
-    @font-style: normal
-);
-
-.lib-font-face(
-    @family-name: @font-family-name__base,
-    @font-path: '@{baseDir}fonts/opensans/bold/opensans-700',
-    @font-weight: 700,
-    @font-style: normal
-);
 & when (@media-common = true) {
 	.items {
 		.lib-list-reset-styles();
@@ -89,7 +92,7 @@
 	h1, .h1{ 
 		.lib-css(font, @f_h1);
 		.lib-css(color, @main_title_text);
-		.lib-css(margin, 0 0 @indent__base);
+		.lib-css(margin, 0 0 25px);
 	}
 	h2, .h2{ 
 		.lib-css(font, @f_h2);
