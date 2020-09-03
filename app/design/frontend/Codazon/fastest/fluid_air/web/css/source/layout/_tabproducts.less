@@ -54,7 +54,7 @@
 		margin-top:-6px;
 		padding-left:0;
 		padding-right:0;
-		padding-top:20px;
+		padding-top:20px;padding-bottom: 20px;
 		.lib-css(background, transparent);
 		.products{
 			//margin:0;
@@ -105,7 +105,7 @@
 				}
 			}
 			> .item.content{
-				border-top-width:1px;
+				border-top-width:1px;line-height: 24px;border-top: 1px solid #515151;
 			}
 		}
 	}
@@ -130,17 +130,20 @@
 			display:inline-block;
 			vertical-align:top;
 			> .switch {
-				.lib-css(font, @f_h5);
+				font-size: 18px;
+				font-family: 'Poppins-Light';
 				text-transform:uppercase;
 				position:relative;
 				border-width:0;
+				padding: 0px 0px 10px 0px;
+    			margin: 0 6px;
 				//border-bottom-width:1px;
 				//border-bottom-style: solid;
 				&:before{
 					content:'';
 					bottom:0;
 					width:100%;
-					background:@main_tab_hover_text;
+					background:#005A9C;
 					height:4px;
 					position:absolute;
 					left:0;
@@ -151,6 +154,7 @@
 				.abs-transition();
 				&:hover{
 					.abs-cssall(@main_tab_hover_text, @main_tab_hover_text, @main_tab_hover_background);
+					font-family: 'Poppins-Bold';
 					//border-bottom-width:0px;
 					&:before{
 						.abs-transform(~'scale(1, 1)');

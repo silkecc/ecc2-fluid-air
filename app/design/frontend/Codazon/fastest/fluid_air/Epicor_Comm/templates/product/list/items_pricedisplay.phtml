@@ -1,0 +1,172 @@
+<?php
+/**
+ * Copyright © 2010-2018 Epicor Software Corporation: All Rights Reserved
+ */
+
+// @codingStandardsIgnoreFile
+
+/* @var $block \Magento\Catalog\Block\Product\AbstractProduct */
+?>
+
+<?php
+// Lazy Load product price and stock rendering for upsell, crosssell and new
+$_item = $block->getProduct();
+$_LoaderHelper = $this->helper('Epicor\Comm\Helper\LazyLoader');
+$commHelper = $this->helper('Epicor\Comm\Helper\Data');
+/* @var $_LoaderHelper \Epicor\Comm\Helper\LazyLoader */
+$isLazyLoad = $_LoaderHelper->isLazyLoad();
+$epicorEccBlock = $block->getLayout()->getBlock('epicor_ecc_product_list');
+$eccHideCheckout = $commHelper->getEccHidePrice();
+$eccHideCheckout = $eccHideCheckout && $eccHideCheckout != 3 ? true : false;
+$epicorEccBlock->setListMode("grid");
+switch ($type = $block->getType()) {
+    case 'related':
+        /** @var \Magento\Catalog\Block\Product\ProductList\Related $block */
+        $type = 'related';
+        $class = $type;
+
+        $showAddTo = true;
+        $showCart = true;
+        $templateType = null;
+        $description = false;
+
+        break;
+    case 'upsell':
+        /** @var \Magento\Catalog\Block\Product\ProductList\Upsell $block */
+        $type = 'upsell';
+        $class = $type;
+
+        $showAddTo = true;
+        $showCart = true;
+        $templateType = null;
+        $description = false;
+        $canItemsAddToCart = false;
+
+        break;
+    case 'substitute':
+        /** @var \Epicor\Comm\Block\Catalog\Product\ProductList\Substitute $block */
+        $type = $block->getDisplayType();
+        $class = $block->getDisplayClass();
+
+        $showAddTo = true;
+        $showCart = true;
+        $templateType = null;
+        $description = true;
+        $canItemsAddToCart = true;
+
+        break;
+    case 'crosssell':
+        /** @var \Magento\Catalog\Block\Product\ProductList\Crosssell $block */
+        $type = 'crosssell';
+        $class = $type;
+
+        $showAddTo = true;
+        $showCart = true;
+        $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
+        $description = false;
+        $canItemsAddToCart = false;
+        break;
+    case 'new':
+        $type = 'new';
+        $mode = 'grid';
+        $type = $type . ' ' . $mode;
+
+        $class = 'widget' . ' ' . $type;
+
+        $showAddTo = true;
+        $showCart = true;
+        $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
+        $description = ($mode == 'list') ? true : false;
+        $canItemsAddToCart = false;
+        break;
+    default:
+        $exist = null;
+}
+?>
+<?php $epicorEccBlock->setProductPrices($_item); ?>
+<?php $epicorEccBlock->setCurrentProduct($_item); ?>
+<?php // ECC PRICE START >>> ?>
+<?php if ($epicorEccBlock->showPriceOnConfiguration($_item)): ?>
+    <div class="price-box"><span class="price"><?php echo __('Price on configuration'); ?></span></div>
+<?php else: ?>
+    <?php /* @escapeNotVerified */ echo $block->getProductPrice($_item) ?>
+<?php endif; ?>
+<?php // ECC PRICE END <<< ?>
+<?php if ($showAddTo || $showCart): ?>
+    <?php if ($showCart): ?> <div class="cdz-product-bottom hover-effect">
+    <div class="cdz-buttons-container">
+        <div class="cdz-buttons-inner"><?php endif; ?>
+    <div class="product actions product-item-actions">
+        <?php $showAddToCart = true; ?>
+        <?php if ($showCart && $epicorEccBlock->showAddToCart($_item) && !$eccHideCheckout): $showAddToCart = true; ?>
+            <div class="actions-primary">
+                <?php if ($_item->isSaleable() && !$_item->canConfigure()): ?>
+                    <?php if ($epicorEccBlock->showLocations()): ?>
+                        <?php echo $this->getChildHtml('epicor_ecc_product_list_locations', false); ?>
+                    <?php elseif ($_item->getEccConfigurator()): ?>
+                        <?php echo $this->getChildHtml('epicor_ecc_product_configurator', false) ?>
+                    <?php elseif ($_item->getTypeId() == 'grouped' || $_item->getTypeId() == 'configurable'): ?>
+                        <button class="action tocart primary" data-mage-init='{"redirectUrl": {"url": "<?= /* @escapeNotVerified */ $_item->getProductUrl() ?>"}}' type="button" title="<?= /* @escapeNotVerified */ __('View Details') ?>">
+                            <span><?= /* @escapeNotVerified */ __('View Details') ?></span>
+                        </button>
+                    <?php else: ?>
+                        <?php if ($_item->getTypeInstance()->hasRequiredOptions($_item)): ?>
+                            <button class="action tocart primary" data-mage-init='{"redirectUrl": {"url": "<?= /* @escapeNotVerified */ $block->getAddToCartUrl($_item) ?>"}}' type="button" title="<?= /* @escapeNotVerified */ __('Add to Cart') ?>">
+                                <span><?= /* @escapeNotVerified */ __('Add to Cart') ?></span>
+                            </button>
+                        <?php else: ?>
+                            <?php //$postParams = $block->getAddToCartPostParams($_item); ?>
+                            <?php $postDataHelper = $this->helper('Magento\Framework\Data\Helper\PostHelper');
+                            $paramData = [];
+                            if ($_item->getTypeId() == 'bundle') {
+                                $selectionCollection = $_item->getTypeInstance(true)->getSelectionsCollection(
+                                    $_item->getTypeInstance(true)->getOptionsIds($_item),
+                                    $_item
+                                );
+                                foreach ($selectionCollection as $option) {
+                                    $paramData["bundle_option[" . $option['option_id'] . "]"] = $option['selection_id'];
+                                }
+                            }
+                            if ($epicorEccBlock->getSingleLocation()) {
+                                $paramData['location_code'] = $epicorEccBlock->getSingleLocation()->getLocationCode();;
+                            }
+                            $paramData['product'] = $_item->getEntityId();
+                            //$paramData[Action::PARAM_NAME_URL_ENCODED] = $postParams['data'][Action::PARAM_NAME_URL_ENCODED];
+                            $postData = $postDataHelper->getPostData($block->getAddToCartUrl($_item),
+                                $paramData)
+                            ?>
+                            <button class="action tocart primary"
+                                    data-post='<?= /* @escapeNotVerified */ $postData ?>'
+                                    type="button" title="<?= /* @escapeNotVerified */ __('Add to Cart') ?>">
+                                <span><?= /* @escapeNotVerified */ __('Add to Cart') ?></span>
+                            </button>
+                        <?php endif; ?>
+                    <?php endif; ?>
+                <?php elseif($_item->isSaleable() && $_item->canConfigure()): ?>
+                    <button class="action tocart primary" data-mage-init='{"redirectUrl": {"url": "<?= /* @escapeNotVerified */ $_item->getProductUrl() ?>"}}' type="button" title="<?= /* @escapeNotVerified */ __('View Details') ?>">
+                        <span><?= /* @escapeNotVerified */ __('View Details') ?></span>
+                    </button>
+                <?php else: ?>
+                    <div class="stock unavailable"><span><?php echo __('Product currently unavailable'); ?></span></div>
+                <?php endif; ?>
+            </div>
+        <?php endif; ?>
+        <?php if($showCart && (!$showAddToCart || $eccHideCheckout)): ?>
+            <?php if (($_item->getStockItem() && $_item->getStockItem()->getIsInStock())): ?>
+                <button class="action tocart primary" data-mage-init='{"redirectUrl": {"url": "<?= /* @escapeNotVerified */ $_item->getProductUrl() ?>"}}' type="button" title="<?= /* @escapeNotVerified */ __('View Details') ?>">
+                    <span><?= /* @escapeNotVerified */ __('View Details') ?></span>
+                </button>
+            <?php else: ?>
+                <div class="stock unavailable"><span><?php echo __('Product currently unavailable'); ?></span></div>
+            <?php endif; ?>
+        <?php endif; ?>
+        <?php if ($showAddTo): ?>
+            <div class="secondary-addto-links actions-secondary" data-role="add-to-links">
+                <?php if ($addToBlock = $block->getChildBlock('addto')): ?>
+                    <?= $addToBlock->setProduct($_item)->getChildHtml() ?>
+                <?php endif; ?>
+            </div>
+        <?php endif; ?>
+    </div>
+    <?php if ($showCart): ?> </div></div></div> <?php endif; ?>
+<?php endif; ?>

@@ -1,0 +1,127 @@
+<?php
+/**
+ * Copyright © 2010-2018 Epicor Software Corporation: All Rights Reserved
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var $block \Magento\Catalog\Block\Product\View */
+?>
+<?php $_product = $block->getProduct(); ?>
+<?php
+$helper = $this->helper('Epicor\Comm\Helper\Data');
+$locHelper = $this->helper('Epicor\Comm\Helper\Locations');
+$locations = $this->getLocations($_product);
+$editItem = $this->getRequest()->getParam('product_id');
+
+if(!$editItem) {
+   $buttonTitle = __('Add To Cart');
+} else {
+   $buttonTitle = __('Update Cart'); 
+}
+$showLocations = $locHelper->isLocationsEnabled();
+$customerLocations = $_product->getCustomerLocations();
+$showAddToCart = $helper->isFunctionalityDisabledForCustomer('cart') ? false : true;
+$countLocations = count($_product->getCustomerLocations());
+$isLocationRequireForConfigurable = $locHelper->isLocationRequireForConfigurable();
+if ($showLocations && $countLocations == "0" && $isLocationRequireForConfigurable) {
+    $showAddToCart = false;
+}
+$allSourceLocations = ($this->helper('Epicor\Common\Helper\Data')->getScopeConfig()->getValue('epicor_comm_locations/global/stockvisibility', \Magento\Store\Model\ScopeInterface::SCOPE_STORE) == 'all_source_locations') ? true : false;
+$groupOrConfigurable = in_array($_product->getTypeId(),array('grouped','configurable')) ? true : false;
+if($block->getRequest()->getActionName() === 'configure'){
+    $groupOrConfigurable = false;
+}
+$eccHidePrice = !$helper->getEccHidePrice() || $helper->getEccHidePrice() == 3;
+$showAddToCart = $showAddToCart && $eccHidePrice && $_product->isSaleable();
+ ?>
+
+<?php if ($showLocations && count($customerLocations)  && !$allSourceLocations && !$groupOrConfigurable):  ?>
+    <?php echo $block->setProduct($_product)->getChildChildHtml('epicor_commlocations_container', false) ?>
+    <?php echo $block->setProduct($_product)->getChildChildHtml('epicor_commlocations_container.additional', false) ?>
+<?php endif; ?> 
+<?php if ($_product->isSaleable() && (!$eccHidePrice || $eccHidePrice == 3)): ?>
+    <div class="box-tocart update">
+        <fieldset class="fieldset">
+            <?php if (($block->shouldRenderQuantity() && !$groupOrConfigurable && $showAddToCart) || ($allSourceLocations && $groupOrConfigurable && $showAddToCart) || (!$showLocations && $showAddToCart)): ?>
+
+            <div class="field qty">
+                <label class="label" for="qty"><span><?php /* @escapeNotVerified */ echo __('Qty') ?></span></label>
+                
+                <div class="control">
+                    <?php 
+                        $decimalPlaces = $helper->getDecimalPlaces($_product);
+                        $decimalValidation = "";
+                        if ($decimalPlaces !== "") {
+                            $decimalValidation = ",'validatedecimalplace':".$decimalPlaces;
+                        } else {
+                            $decimalValidation = ",'digits':true";
+                        }
+                    ?>
+                    <div class="qty-minus"> <a class="btn-qty minus" href="#">-</a></div>
+                    <div class="qty-input">
+                        <input type="number" name="qty" id="qty" maxlength="12" value="<?php /* @escapeNotVerified */ echo $block->getProductDefaultQty() * 1 ?>" title="<?php /* @escapeNotVerified */ echo __('Qty') ?>" class="input-text qty" data-validate="{'required-number':true<?php echo $decimalValidation; ?>}"/>
+                    </div>
+                    <div class="qty-plus"> <a class="btn-qty plus" href="#">+</a></div>
+                </div>
+            </div>
+            <script type="text/javascript">
+                require(['jquery','domReady!'],function($){
+                    $(".btn-qty").click(function (event) {
+                        var $button = $(this);
+                        var oldValue = $button.closest('.control').find("input#qty").val();
+                        var defaultValue = <?php /* @escapeNotVerified */ echo $block->getProductDefaultQty() * 1 ?>;
+                        if ($button.hasClass('plus')) {
+                            var newVal = parseFloat(oldValue) + 1;
+                        } else {
+                            if (oldValue > defaultValue) {
+                                var newVal = parseFloat(oldValue) - 1;
+                            } else {
+                                newVal = defaultValue;
+                            }
+                        }
+                        $button.closest('.control').find("input#qty").val(newVal);
+                        event.preventDefault();
+                    });
+
+                });
+                </script>
+
+
+            <?php endif; ?>
+            <?php if($showAddToCart):?>
+                <div class="actions">
+                    <button type="submit"
+                            title="<?php /* @escapeNotVerified */ echo $buttonTitle ?>"
+                            class="action primary tocart"
+                            id="product-addtocart-button">
+                        <span><?php /* @escapeNotVerified */ echo $buttonTitle ?></span>
+                    </button>
+                    <?php echo $block->getChildHtml('', true) ?>
+                </div>
+            <?php endif;?>
+        </fieldset>
+    </div>
+    <div class="out-of-stock-msg"></div>
+    <?php if (!$editItem) { ?>
+        <script type="text/x-magento-init">
+            {
+                "#product_addtocart_form": {
+                    "Magento_Catalog/js/validate-product": {}
+                }
+            }
+        </script>
+    <?php } else { ?>
+        <script type="text/x-magento-init">
+            {
+                "#product_addtocart_form": {
+                    "validation": {},
+                    "addToCart": {
+                        "cartButtonId": "#product-updatecart-button",
+                        "cartForm": "#product_addtocart_form"
+                    }
+                }
+            }
+        </script>
+    <?php } ?>
+<?php endif; ?>

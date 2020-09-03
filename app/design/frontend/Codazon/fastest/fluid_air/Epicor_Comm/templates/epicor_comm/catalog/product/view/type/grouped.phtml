@@ -1,0 +1,193 @@
+<?php
+/**
+ * Copyright © 2010-2018 Epicor Software Corporation: All Rights Reserved
+ */
+?><?php
+
+// @codingStandardsIgnoreFile
+
+/**
+ * Grouped product data template
+ *
+ * @var $block \Magento\Catalog\Block\Product\View\BaseImage
+ * @var $block \Epicor\Comm\Block\Catalog\Product\View\Type\Grouped
+ */
+?>
+<?php
+$locHelper = $this->helper('Epicor\Comm\Helper\Locations');
+/* @var $listProductHelper \Epicor\Comm\Helper\Locations */
+
+$listProductHelper = $this->helper('Epicor\Lists\Helper\Frontend\Product');
+/* @var $listProductHelper \Epicor\Lists\Helper\Frontend\Product */
+
+$listFrontendHelper = $this->helper('Epicor\Lists\Helper\Frontend');
+/* @var $listFrontendHelper \Epicor\Lists\Helper\Frontend */
+
+$isListEnabled = $listFrontendHelper->listsEnabled();
+$activeProducts = $listProductHelper->getActiveListsProductIds(true);
+$msqForNonErp = $block->getMsqForNonErp();
+
+$commonHelper = $this->helper('Epicor\Common\Helper\Data');
+/* @var $commonHelper \Epicor\Common\Helper\Data */
+
+$packsizeToBeConfigured = $this->getRequest()->getParam('packsize');
+$initialQtyToBeConfigured = $this->getRequest()->getParam('qty');
+
+$showLocations = $locHelper->isLocationsEnabled();
+$allSourceLocations = ($commonHelper->getScopeConfig()->getValue('epicor_comm_locations/global/stockvisibility', \Magento\Store\Model\ScopeInterface::SCOPE_STORE) == 'all_source_locations') ? true : false;
+if($showLocations && !$allSourceLocations && !$this->getHideLocations()) : ?>
+    <div class="box-tocart">
+        <?php echo $this->getChildHtml('grouped_locations') ?>
+    </div>
+<?php else: ?>
+
+    <?php $block->setPreconfiguredValue(); ?>
+    <?php $_product = $block->getProduct(); ?>
+    <?php $_associatedProducts = $block->getAssociatedProducts(); ?>
+    <?php $_hasAssociatedProducts = count($_associatedProducts) > 0; ?>
+    <?php 
+
+    $commonHelper = $this->helper('Epicor\Common\Helper\Data');
+    $commHelper = $this->helper('Epicor\Comm\Helper\Data');
+    /* @var $commHelper \Epicor\Comm\Helper\Data */
+    $showPrices = $commHelper->isFunctionalityDisabledForCustomer('prices') ? false : true;    
+    $showPrices = $block->getHidePrices() || ($commHelper->getEccHidePrice() && $commHelper->getEccHidePrice() != 2) ? false : $showPrices;
+    $showAddToCart = $commHelper->isFunctionalityDisabledForCustomer('cart') ? false : true;    
+    ?>
+    <div class="table-wrapper grouped">
+        <table class="table data grouped" id="super-product-table">
+            <thead>
+            <tr>
+                <th class="col item" scope="col"><?php /* @escapeNotVerified */ echo __('Unit of Measure') ?></th>
+                <th class="col item" scope="col"><?php /* @escapeNotVerified */ echo __('Availablity') ?></th>
+                <?php if($showPrices && $block->getCanShowProductPrice($_product)): ?>
+                <th class="col price" scope="col"><?php /* @escapeNotVerified */ echo __('Price') ?></th>
+                <?php endif; ?>
+                <?php if ($_product->isSaleable()): ?>
+                    <th class="col qty" scope="col"><?php /* @escapeNotVerified */ echo __('Qty.') ?></th>
+                <?php endif; ?>
+            </tr>
+            </thead>
+
+            <?php if ($_hasAssociatedProducts): ?>
+            <?php foreach ($_associatedProducts as $_item):?>
+                        <?php
+                        if ((!$msqForNonErp) && (!$_item->getEccStkType())):
+                            continue;
+                        elseif ($isListEnabled && $activeProducts[0] && !in_array($_item->getId(), $activeProducts)):
+                            continue;
+                        elseif ($packsizeToBeConfigured && $packsizeToBeConfigured != $_item->getId()) :
+                            continue;
+                        endif;
+                        ?>
+            <tbody>
+                <tr>
+                    <td data-th="<?php echo $block->escapeHtml(__('Product Name')); ?>" class="col item">
+                        <?php if($_item->getEccPackSize() != '' && $_product->getEccStkType() == 'grouped') :  ?>  
+                        <div>
+                            <?php echo __($this->escapeHtml($_item->getEccPackSize())) ?>
+                        </div>                   
+                        <?php else:?>
+                            <strong class="product-item-name"><?php echo $block->escapeHtml($_item->getName()) ?></strong>
+                        <?php endif ?>
+                    </td>
+                    <td data-th="<?php echo $block->escapeHtml(__('Availablity')); ?>" class="col item">
+                        <?php if(!$_item->getIsEccNonStock()): ?>
+                        <?php switch ($_item->getStockType()): case 'bool': ?>
+                                <?php if ($_item->isAvailable()): ?>
+                                <p class="availability in-stock">
+                                    <span><?php echo __('In stock') ?></span></p>
+                            <?php else: ?>
+                                <p class="availability out-of-stock">
+                                    <span><?php echo __('Out of stock') ?></span></p>
+                            <?php endif; ?>
+                                <?php break; ?>
+                            <?php case 'range': ?>
+                            <?php $_img = $_item->getStockRange(); ?>
+                            <img src="<?php echo $_img['src'] ?>" alt="<?php echo $_img['alt'] ?>"
+                                 title="<?php echo $_img['title'] ?>"/>
+                            <?php break; ?>
+                        <?php case 'level': ?>
+                            <p class="availability in-stock"><?php echo __('Stock:') ?>
+                                <span><?php echo $_item->getStockLevel() ?></span></p>
+                            <?php break; ?>
+                        <?php default:
+                            ?>
+                            <?php if ($_item->isAvailable()): ?>
+                            <p class="availability in-stock">
+                                <span><?php echo __('In stock') ?></span></p>
+                        <?php else: ?>
+                            <p class="availability out-of-stock">
+                                <span><?php echo __('Out of stock') ?></span></p>
+                        <?php endif; ?>
+                            <?php break; ?>
+                        <?php endswitch; ?>
+                        <?php endif; ?>
+                    </td>
+                    <?php if ($showPrices && $block->getCanShowProductPrice($_product)): ?>
+                        <td data-th="<?php echo $block->escapeHtml(__('Price')); ?>" class="col price">
+                            <?php if ($block->getCanShowProductPrice($_item)): ?>
+                                <?php /* @escapeNotVerified */ echo $block->getProductPrice($_item) ?>
+                            <?php endif; ?>
+                        </td>
+                    <?php endif; ?>
+                    
+                    <?php if ($_product->isSaleable()): ?>
+                    <td data-th="<?php echo $block->escapeHtml(__('Qty.')); ?>" class="col qty">
+                    <?php if ($_item->isSaleable() && $showAddToCart) : ?>
+                        <div class="control qty">
+                            <?php 
+                            $decimalPlaces = $commonHelper->getDecimalPlaces($_item);
+                            $decimalValidation = "";
+                            if ($decimalPlaces !== "") {
+                                $decimalValidation = ",'validatedecimalplace':".$decimalPlaces;
+                            }
+                            ?>
+                            <input type="number" name="super_group[<?php /* @escapeNotVerified */ echo $_item->getId() ?>]"
+                                   data-selector="super_group[<?php /* @escapeNotVerified */ echo $_item->getId() ?>]"
+                                   maxlength="12"
+                                   value="<?php /* @escapeNotVerified */ echo $initialQtyToBeConfigured ? $initialQtyToBeConfigured : $_item->getQty() * 1 ?>"
+                                   title="<?php /* @escapeNotVerified */ echo __('Qty') ?>"
+                                   class="input-text qty"
+                                   data-validate="{'validate-grouped-qty':'#super-product-table'<?php echo $decimalValidation; ?>}"
+                                   />
+                        </div>
+                    <?php else: ?>
+                        <div class="stock unavailable" title="<?php /* @escapeNotVerified */ echo __('Availability') ?>">
+                            <span><?php /* @escapeNotVerified */ echo __('Out of stock') ?></span>
+                        </div>
+                    <?php endif; ?>
+                    </td>
+                    <?php endif; ?>
+                </tr>
+                <?php if ($block->getCanShowProductPrice($_product)
+                    && $block->getCanShowProductPrice($_item)
+                    && trim($block->getProductPriceHtml(
+                        $_item,
+                        \Magento\Catalog\Pricing\Price\TierPrice::PRICE_CODE
+                    ))): ?>
+                    <tr class="row-tier-price">
+                        <td colspan="2">
+                            <?php echo $block->getProductPriceHtml(
+                                $_item,
+                                \Magento\Catalog\Pricing\Price\TierPrice::PRICE_CODE
+                            ) ?>
+                        </td>
+                    </tr>
+                <?php endif; ?>
+            </tbody>
+            <?php endforeach; ?>
+            <?php else: ?>
+            <tbody>
+                <tr>
+                    <td class="unavailable"
+                        colspan="<?php if ($_product->isSaleable()): ?>4<?php else : ?>3<?php endif; ?>">
+                        <?php /* @escapeNotVerified */ echo __('No options of this product are available.') ?>
+                    </td>
+                </tr>
+            </tbody>
+            <?php endif; ?>
+        </table>
+    </div>
+    <div id="validation-message-box"></div>
+<?php endif; ?>
