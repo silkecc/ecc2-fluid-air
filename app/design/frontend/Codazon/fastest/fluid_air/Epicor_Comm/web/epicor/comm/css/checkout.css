@@ -1,0 +1,75 @@
+/* 
+    Document   : general checkout css
+    Created on : 1/24/2018
+    Author     : pradeep
+    
+*/
+.dda-form { 
+    padding: 10px;
+}
+.dda-form  ul.form-list{
+        list-style: none;
+}
+.search-address-button-container {
+    display: inline-block;
+    padding-bottom: 20px;
+}
+.address-button-container{
+    width: 100%
+}
+.new-address-popup {
+    display: inline-block;
+}
+.new-address-popup > button.action-show-popup {
+    margin-bottom: 0;
+}
+.ecc-search-address{
+    display: inline-block;
+    margin-right: 20px;
+}
+
+@media only screen and (max-width: 639px) {
+    div.ecc-search-address{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    div.ecc-search-address button{
+        width: 100%;
+    }
+}
+
+.dda-form  ul.form-list li.control {
+    margin: 15px 0 15px 0;
+}
+
+.opc-wrapper button.action.action-choose-contact {
+    margin: 20px 0 20px 0;
+}
+.contact-block{
+    margin-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #cccccc;    
+}
+.opc-wrapper .contact-form .field {
+    margin-top: 20px;
+}
+.opc-wrapper .contact-form .label {
+        font-size: unset;
+}
+.field.ecc_customer_order_ref, .field.ecc_shipping_berore_field, .field.ecc_tax_exempt_reference{
+    clear: both;
+    position: relative;
+    /*top: 25px;*/
+}
+.ecc_customer_order_ref._required > .label:after, .becc_customer_order_ref._required > .label:after,
+.ecc_additional_reference._required > .label:after {
+    content: '*';
+    color: #e02b27;
+    font-size: 1.2rem;
+    margin: 0 0 0 5px;
+}
+
+.field .control._with-tooltip select {
+    margin-right: 10px;
+    width: calc(100% - 36px);
+}

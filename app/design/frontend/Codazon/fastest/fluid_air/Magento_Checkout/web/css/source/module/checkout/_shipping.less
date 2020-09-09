@@ -58,10 +58,11 @@
                 .field {
                     .label {
                         font-weight: @font-weight__regular;
+                        margin-bottom: 4px;
                     }
                 }
                 .note {
-                    font-size: @font-size__base;
+                    font-size: 12px;
                     margin-top: @indent__s;
                 }
             }
@@ -213,11 +214,13 @@
         .form-shipping-address,
         .methods-shipping {
             .lib-css(background, @checkout-step-content-mobile__background);
-            .lib-css(margin, @checkout-step-content-mobile__margin);
-            .lib-css(padding, @indent__base @checkout-step-content-mobile__margin-s);
+            // .lib-css(margin, @checkout-step-content-mobile__margin);
+            // .lib-css(padding, @indent__base @checkout-step-content-mobile__margin-s);
+            margin: 0px -15px 15px;padding: 10px 15px;
         }
 
         .form-login {
+            border-bottom: 1px solid #EBEBEB;
             + .form-shipping-address {
                 .lib-css(margin-top, -(@checkout-step-content-mobile__margin-s));
             }
@@ -250,7 +253,7 @@
 
         .methods-shipping {
             .lib-css(border-bottom, @checkout-step-title__border);
-            padding-top: @indent__l;
+            // padding-top: @indent__l;
         }
 
         .edit-address-link {
@@ -292,6 +295,13 @@
         .form-login,
         .form-shipping-address {
             .lib-css(max-width, @checkout-shipping-address__max-width);
+        }
+        .form-shipping-address{
+            .field.street{
+                .field.additional{
+                    float: left;width: 50%;
+                }
+            }
         }
 
         .form-login {

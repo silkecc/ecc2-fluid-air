@@ -169,6 +169,11 @@
 		}
         &.table-wrapper {
 			margin-bottom:0;
+            .cart-table .field.qty .button {
+                margin-top: 4px;
+                font-size: 12px;
+                padding: 9px 6px;
+            }
             .cart {
                 thead {
                     tr th.col {
@@ -342,6 +347,11 @@
         border-bottom: @border-width__base solid @border-color__base;
         clear: left;
         &:extend(.abs-discount-block all);
+        .actions-toolbar{
+            .primary .action{
+                padding: 9px 10px;
+            }
+        }
     }
 
     //  Empty cart
@@ -382,6 +392,9 @@
 }
 
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .cart-summary .block > .title{
+        padding: 10px 15px 0 15px;
+    }
     //  Cart container
     .cart-container {
         .form-cart {
@@ -390,15 +403,32 @@
 				margin-top: -5px;
 				position: relative;
 				z-index: 2;
+                button{
+                    width: 48%;
+                }
             }
         }
     }
 
     .cart-discount {
-        border-bottom: @border-width__base solid @border-color__base;
+        border-bottom: @border-width__base solid @border-color__base;padding: 0 15px;
+        margin: 20px 0;
+        background: #fff;
+        .block{
+            padding: 20px 0 10px 0;
+        }
+        .actions-toolbar .primary .action{
+            padding: 8px 5px;
+            font-size: 12px;
+            font-weight: 100;
+        }
     }
 
     .cart {
+
+        #shopping-cart-table{
+            padding:0px;
+        }
         &.table-wrapper {
             border-top: @border-width__base solid @border-color__base;
             thead {
@@ -421,7 +451,7 @@
                     display: block;
                     float: left;
                     white-space: nowrap;
-                    width: 33%;
+                    width: 33%;padding: 8px 5px;
                     &:before {
                         content: attr(data-th);
                         display: block;
@@ -455,7 +485,18 @@
         }
     }
 }
-
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+    //  Cart container
+    .cart-container {
+        .form-cart {
+            .actions.main {
+                button{
+                    width: 80%;
+                }
+            }
+        }
+    }
+}
 //
 //  Common
 //  _____________________________________________
