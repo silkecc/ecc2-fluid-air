@@ -69,21 +69,21 @@ a.action.primary,
 button{
 	text-transform:uppercase;
 	.abs-transition();
-	
+
 }
 button{
 	.abs-cssall(@btn_default_text, @btn_default_border, @btn_default_background, @btn_default_font);
 	&:hover{
 		.abs-cssall(@btn_hover_text, @btn_hover_border, @btn_hover_background);
-	}	
+	}
 }
 
 button.primary{
 	.abs-cssall(@btn_primary_text, @btn_primary_border, @btn_primary_background);
-	
+
 	&:hover{
 		.abs-cssall(@btn_default_text, @btn_default_border, @btn_default_background);
-	}	
+	}
 }
 .action.multicheckout{
 	.lib-css(font-size, 110%);
@@ -112,7 +112,7 @@ button.primary{
 	.abs-cssall(@btn_productitem_text, @btn_productitem_border, @btn_productitem_background);
 	&:hover{
 		.abs-cssall(@btn_hover_text, @btn_hover_border, @btn_hover_background);
-	}	
+	}
 }
 //add to cart in product image
 .cdz-buttons-container{
@@ -152,7 +152,7 @@ button.primary{
 	.qs-button{
 		display:none !important;
 	}
-	
+
 	.product-style07 .product-buttons-inner{
 		form{ display:inline-block; vertical-align:top;}
 		button.tocart.primary{
@@ -188,7 +188,7 @@ button.primary{
 	}
 }
 
-///Wishlist/Compare 
+///Wishlist/Compare
 .add-to-link(){
 	.action{
 		.btn-showicon(@_btnwidth, @_btnheight, 0, 0, "\f012", 16px);
@@ -235,22 +235,18 @@ button.primary{
 		}
 		&:hover{
 			span{
-				.abs-cssall(@btn_hover_background, @btn_hover_border, transparent);
+				.abs-cssall(#000, @btn_hover_border, transparent);
 			}
 		}
-		span:before{
-			//.abs-iconfont("\f079", 14px);
-			//margin-right:@indent__xs;
-		}
-		&.towishlist span:before{
-			//content:"\f004";
-		}			
 	}
 }
 
 //button product style 01
-.cdz-product-wishlist{ 
-	position: absolute; left: 15px; top: 15px; z-index:3;
+.cdz-product-wishlist{
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    z-index:3;
 	.rtl-layout &{
 		left: auto;
 		right: 15px;
@@ -258,13 +254,29 @@ button.primary{
 	a.action.tocompare{ display:none;}
 	a.action.towishlist{
 		position:relative;
-		&:before{ .abs-iconfont("\f08a", 18px); width:20px; text-align: center;}
+        &:before{
+            .abs-iconfont("\f08a", 18px);
+            width:20px;
+            text-align: center;
+        }
 		.abs-link(@main_text, @main_hover_text);
-		span{position:absolute; top:30px; left:50%; color:#fff; background:#000; padding:3px 5px; border-radius:3px; white-space: nowrap; display:none;}
+		span{
+            position:absolute;
+            top:30px;
+            left:50%;
+            color:#fff;
+            background:#000;
+            padding:3px 5px;
+            border-radius:3px;
+            white-space: nowrap;
+            display:none;
+        }
 		&:hover{
 			color:@main_hover_text;
-			&:before{ .abs-iconfont("\f004", 18px);}
-			
+			&:before{
+                .abs-iconfont("\f004", 18px);
+            }
+
 		}
 		&.in-wishlist{
 			color:#fc7070 !important;
@@ -287,7 +299,7 @@ button.primary{
     padding: 2px 10px;
     color: #fff;
     border-radius: 5px;
-	&:before{ 
+	&:before{
 		.abs-iconfont("\f0d7", 20px);
 		position:absolute;
 		bottom:-12px;
@@ -311,13 +323,13 @@ button.primary{
 			min-width:290px;
 			.abs-transition();
 			text-transform:uppercase;
-			.lib-button-primary();	
+			.lib-button-primary();
 			font-weight:600;
 			.abs-cssall(@btn_default_text, @btn_default_border, @btn_default_background);
 			&:hover{
-				
+
 				.abs-cssall(@btn_primary_text, @btn_primary_border, @btn_primary_background);
-			}	
+			}
 		}
 		.ajax-loader{
 			&:before{
@@ -330,7 +342,7 @@ button.primary{
 				-moz-animation: cssload-rotate 1150ms linear infinite;
 			}
 		}
-		
+
 	}
 }
 
