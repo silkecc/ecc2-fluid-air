@@ -194,7 +194,8 @@
 			border-width:0 !important;
 		}
 		.cdz-login-form-dropdown{
-			top:34px;
+            top:34px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 		}
 		.logo {
 			img {
@@ -273,7 +274,19 @@
 				input[type="text"]{
 					border-width:0;
 					height:35px;
-					.abs-placeholder(#202020);
+                    .abs-placeholder(#202020);
+                    &::-webkit-input-placeholder {
+                        font-style: normal;
+                    }
+                    &:-moz-placeholder { /* Firefox 18- */
+                        font-style: normal;
+                    }
+                    &::-moz-placeholder {  /* Firefox 19+ */
+                        font-style: normal;
+                    }
+                    &:-ms-input-placeholder {
+                        font-style: normal;
+                    }
 				}
 			}
 		}

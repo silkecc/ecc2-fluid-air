@@ -54,7 +54,7 @@ switch ($type = $block->getType()) {
             $canItemsAddToCart = $block->canItemsAddToCart();
 
             $showAddTo = true;
-            $showCart = false;
+            $showCart = true;
             $templateType = null;
             $description = true;
         }
@@ -91,8 +91,8 @@ switch ($type = $block->getType()) {
             $limit = $block->getItemLimit('upsell');
             $shuffle = 0;
 
-            $showAddTo = false;
-            $showCart = false;
+            $showAddTo = true;
+            $showCart = true;
             $templateType = null;
             $description = true;
             $canItemsAddToCart = false;
@@ -246,7 +246,7 @@ $epicorEccBlock->setListMode("grid");
                                         </a>
                                     </div>
                                 </div>
-                                
+
                                 <?php
                                 /**
                                  * Please Don't forgot to add
@@ -261,11 +261,6 @@ $epicorEccBlock->setListMode("grid");
                                         <?= $block->escapeHtml($_item->getName()) ?></a>
                                     </strong>
                                     <?php $labelHelper->showLabel($_item) ?>
-                                    <?php // ECC PRODUCT SKU START >>> ?>
-                                    <?php //echo $block->getChildHtml('epicor_ecc_sku_display', false); ?>
-                                    <?php // ECC PRODUCT SKU END >>> ?>
-                                    
-
                                     <?php if ( ! $isLazyLoad): /** ECC Lazy load enable START */ ?>
                                         <?php // ECC PRICE START >>> ?>
                                         <?php if ($epicorEccBlock->showPriceOnConfiguration($_item)): ?>
@@ -274,16 +269,13 @@ $epicorEccBlock->setListMode("grid");
                                             <?php /* @escapeNotVerified */ echo $block->getProductPrice($_item) ?>
                                         <?php endif; ?>
                                         <?php // ECC PRICE END <<< ?>
-                                        <?php // ECC STOCK DISPLAY START >>> ?>
-                                        <?php //echo $this->getChildHtml('epicor_ecc_stock_display', false); ?>
-                                        <?php // ECC STOCK DISPLAY END <<< ?>
                                         <?php if ($showAddTo || $showCart): ?>
-                                            <?php //if ($showCart): ?> 
+                                            <?php //if ($showCart): ?>
                                             <div class="cdz-product-bottom hover-effect">
                                                 <div class="cdz-buttons-container">
                                                     <div class="cdz-buttons-inner"> <?php //endif; ?>
                                             <div class="product actions product-item-actions">
-                                                <?php $showAddToCart = ture; ?>
+                                                <?php $showAddToCart = true; ?>
                                                 <?php if ($showCart && $epicorEccBlock->showAddToCart($_item) && !$eccHideCheckout): $showAddToCart = true; ?>
                                                     <div class="actions-primary">
                                                         <?php if ($_item->isSaleable() && !$_item->canConfigure()): ?>
@@ -392,7 +384,7 @@ $epicorEccBlock->setListMode("grid");
             </div>
         </div>
         <?php endif;?>
-<?php 
+<?php
     $itemSlider = 4;
     if($type == 'crosssell' || $type == 'crosssell-rule'){
         $itemSlider = $itemSlider - 1;
@@ -411,13 +403,13 @@ require(['jquery','cdz_slider'],function($){
             responsiveClass: true,
             nav: true,
             dots: true,
-            rtl: ThemeOptions.rtl_layout == 1 ? true : false, 
+            rtl: ThemeOptions.rtl_layout == 1 ? true : false,
             responsive:{
                 0:{items: <?php echo ($itemSlider > 2)  ?>},
                 480:{items: <?php echo ($itemSlider > 2)   ?>},
                 640:{items: <?php echo ($itemSlider > 2)  ?>},
                 768:{items: <?php echo  ($itemSlider - 1) ?>},
-                1200:{items: <?php echo $itemSlider ?>}         
+                1200:{items: <?php echo $itemSlider ?>}
             }
         });
     }

@@ -116,7 +116,10 @@ button.primary{
 }
 //add to cart in product image
 .cdz-buttons-container{
-	form{ display:inline-block; vertical-align:top;}
+	form {
+        display: block;
+        vertical-align:top;
+    }
 	button.tocart.primary{
 		.btn-showicon(@_btnwidth, @_btnheight, 0, 0, "\f291", 16px);
 		span:before{
