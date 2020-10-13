@@ -10,7 +10,7 @@
 //  _____________________________________________
 
 //
-//  Messages 
+//  Messages
 //  ---------------------------------------------
 
 @message-global-note__color: @text__color;
@@ -217,17 +217,7 @@
 
     .footer {
         &.content {
-           
-            /*ul:extend(.abs-reset-list all) {
-            }*/
             .links {
-                > li {
-                   /* .lib-css(background, @footer__background-color);
-                    .lib-font-size(16);
-                    border-top: 1px solid @footer-links-separator-border-color;
-                    margin: 0 -@layout__width-xs-indent;
-                    padding: 0 @layout__width-xs-indent;*/
-                }
                 strong,
                 a {
                     display: block;
@@ -254,7 +244,7 @@
     }
 
     .copyright {
-        
+
     }
 
     .page-header,
@@ -309,9 +299,9 @@
 					line-height:1;
 			   }
             }
-            /*.label:extend(.abs-visually-hidden all) {
-            }*/
-			.label.switcher-label{display:none}
+			.label.switcher-label {
+                display:none;
+            }
         }
     }
 }
@@ -329,11 +319,6 @@
         .lib-font-size(16);
         right: -25px;
         top: 2px;
-    }
-    .navigation .parent .level-top:after {
-        //.lib-font-size(16);
-        //right: 10px;
-        //top: 7px;
     }
     .page-footer .footer.content {
         .switcher-store {
@@ -410,7 +395,7 @@
             .lib-css(background-color, @copyright__background-color);
         }
     }
-	
+
     .page-header {
         border: 0;
         margin-bottom: 0;
@@ -519,19 +504,23 @@
             > .header.links {
                 .lib-list-inline();
                 float: right;
+                .lib-vendor-prefix-display(flex);
 				.rtl-layout &{
 					float:left;
 				}
                 margin-left: auto;
                 > li {
                     margin: 0 0 0 @indent__base;
+                    .lib-vendor-prefix-display(flex);
+                    align-items: center;
+                    vertical-align: middle;
+                    line-height: normal;
 					.rtl-layout &{
 						margin: 0 @indent__base 0 0;
 					}
                     //&.welcome,
                     > a {
                         display: inline-block;
-                        //line-height: 1.4;
 						vertical-align:middle;
 						.abs-link(@header_text, @header_hover_text);
                     }
@@ -594,7 +583,7 @@
         &.content {
             border-top: none;
             .block {
-               
+
             }
             ul {
             }

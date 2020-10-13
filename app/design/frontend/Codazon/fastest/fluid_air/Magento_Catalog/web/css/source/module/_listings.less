@@ -13,9 +13,6 @@
 @product-name-link__color__visited: @main_productname_text;
 
 @product-name-link__text-decoration: none;
-/*@product-name-link__text-decoration__active: @link__hover__text-decoration;
-@product-name-link__text-decoration__hover: @link__hover__text-decoration;
-@product-name-link__text-decoration__visited: @link__hover__text-decoration;*/
 
 @product-name-link__text-decoration__active: none;
 @product-name-link__text-decoration__hover: none;
@@ -38,7 +35,7 @@
 }
 .old-price {
 	margin-left:10px;
-	
+
 	.lib-css(color, @main_hover_text);
 	.price{.lib-css(color, @main_hover_text);}
 	//.price-label{ display:none;}
@@ -55,7 +52,7 @@
         .products-grid & {
             //width: 100%/2;
             display: inline-block;
-			float:left;	
+			float:left;
 			.rtl-layout &{
 				float:right;
 			}
@@ -135,26 +132,40 @@
                         .abs-borderradius(5px);border-width: 2px;
                         &.towishlist{
                             &:hover{
-                                background: #005A9C;border-color:#005A9C;
-                                &:before{
-                                    color: #fff;
+                                background: #005A9C;
+                                border-color:#005A9C;
+                                &:before {
+                                    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg t='1602556904155' class='icon' viewBox='0 0 1024 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' p-id='2210' xmlns:xlink='http://www.w3.org/1999/xlink' width='200' height='200'%3E%3Cdefs%3E%3Cstyle type='text/css'%3E%3C/style%3E%3C/defs%3E%3Cpath d='M192 0v1024l320-320 320 320V0z' p-id='2211' fill='%23ffffff'%3E%3C/path%3E%3C/svg%3E ");
                                 }
                             }
                             &:before{
-                                content: "\f02e";font-family: FontAwesome;font-size: 20px;
+                                content: "";
+                                display: block;
+                                width: 22px;
+                                height: 22px;
+                                background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg t='1602556904155' class='icon' viewBox='0 0 1024 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' p-id='2210' xmlns:xlink='http://www.w3.org/1999/xlink' width='200' height='200'%3E%3Cdefs%3E%3Cstyle type='text/css'%3E%3C/style%3E%3C/defs%3E%3Cpath d='M192 0v1024l320-320 320 320V0z' p-id='2211' fill='%23005a9c'%3E%3C/path%3E%3C/svg%3E ");
+                                background-size: 100%;
+                                background-repeat: no-repeat;
+                                margin: 7px auto;
                             }
                         }
                         &.tocompare{
                             &:hover{
-                                border-color:#005A9C;background: #005A9C;
-                                &:hover{
-                                    color: #fff;
+                                border-color:#005A9C;
+                                background: #005A9C;
+                                &:before{
+                                    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg t='1602560741069' class='icon' viewBox='0 0 1490 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' p-id='5235' xmlns:xlink='http://www.w3.org/1999/xlink' width='291.015625' height='200'%3E%3Cdefs%3E%3Cstyle type='text/css'%3E%3C/style%3E%3C/defs%3E%3Cpath d='M1144.698146 831.994253 1144.698146 256.003284c0-17.680765-14.324572-32.005336-31.998769-32.005336l-160.00041 0c-17.674197 0-31.992201 14.324572-31.992201 32.005336l0 575.990969c0 17.687332 14.318004 32.005336 31.992201 32.005336l160.00041 0C1130.373574 863.99959 1144.698146 849.681586 1144.698146 831.994253z' p-id='5236' fill='%23ffffff'%3E%3C/path%3E%3Cpath d='M648.704099 863.99959l175.999795 0c17.674197 0 31.998769-14.318004 31.998769-32.005336L856.702662 191.999179c0-17.680765-14.324572-31.998769-31.998769-31.998769L648.704099 160.00041c-17.680765 0-32.005336 14.318004-32.005336 31.998769l0 639.995074C616.698762 849.681586 631.016766 863.99959 648.704099 863.99959z' p-id='5237' fill='%23ffffff'%3E%3C/path%3E%3Cpath d='M376.694862 415.997127c-17.680765 0-31.998769 14.318004-31.998769 31.998769l0 383.99179c0 17.687332 14.318004 32.005336 31.998769 32.005336l160.00041 0c17.680765 0 31.998769-14.318004 31.998769-32.005336L568.694041 447.995895c0-17.680765-14.318004-31.998769-31.998769-31.998769L376.694862 415.997127z' p-id='5238' fill='%23ffffff'%3E%3C/path%3E%3C/svg%3E");
                                 }
                             }
                             &:before{
-                                content: "\e61e";
-                                font-family: 'Luma-Icons';
-                                font-size: 20px;
+                                content: "";
+                                display: block;
+                                width: 34px;
+                                height: 22px;
+                                background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg t='1602560679391' class='icon' viewBox='0 0 1490 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' p-id='5012' xmlns:xlink='http://www.w3.org/1999/xlink' width='291.015625' height='200'%3E%3Cdefs%3E%3Cstyle type='text/css'%3E%3C/style%3E%3C/defs%3E%3Cpath d='M1144.698146 831.994253 1144.698146 256.003284c0-17.680765-14.324572-32.005336-31.998769-32.005336l-160.00041 0c-17.674197 0-31.992201 14.324572-31.992201 32.005336l0 575.990969c0 17.687332 14.318004 32.005336 31.992201 32.005336l160.00041 0C1130.373574 863.99959 1144.698146 849.681586 1144.698146 831.994253z' p-id='5013' fill='%23005a9c'%3E%3C/path%3E%3Cpath d='M648.704099 863.99959l175.999795 0c17.674197 0 31.998769-14.318004 31.998769-32.005336L856.702662 191.999179c0-17.680765-14.324572-31.998769-31.998769-31.998769L648.704099 160.00041c-17.680765 0-32.005336 14.318004-32.005336 31.998769l0 639.995074C616.698762 849.681586 631.016766 863.99959 648.704099 863.99959z' p-id='5014' fill='%23005a9c'%3E%3C/path%3E%3Cpath d='M376.694862 415.997127c-17.680765 0-31.998769 14.318004-31.998769 31.998769l0 383.99179c0 17.687332 14.318004 32.005336 31.998769 32.005336l160.00041 0c17.680765 0 31.998769-14.318004 31.998769-32.005336L568.694041 447.995895c0-17.680765-14.318004-31.998769-31.998769-31.998769L376.694862 415.997127z' p-id='5015' fill='%23005a9c'%3E%3C/path%3E%3C/svg%3E");
+                                background-size: 100%;
+                                background-repeat: no-repeat;
+                                margin: 7px auto;
                             }
                         }
                     }
@@ -174,7 +185,7 @@
                         &:extend(.abs-visually-hidden all);
                     }
                 }
-				
+
             }
         }
         &-description {
@@ -303,7 +314,7 @@
 			margin-bottom:20px;
 			overflow:hidden;
 			padding:10px;
-	
+
             &-info {
                 //display: table-row;
 				width:100%;
@@ -528,7 +539,7 @@
 	}
 	.page-layout-3columns .products-grid > {
 		//.abs-showproduct(2);
-	
+
 	}
 }
 
@@ -550,11 +561,11 @@
 					//.lib-css(border, 2px solid @main_title_border);
 					.abs-boxshadow(0 2px 5px #e1e1e1);
 				}
-				
+
 			}
-			
+
 		}
 	}
-	
+
 }
 

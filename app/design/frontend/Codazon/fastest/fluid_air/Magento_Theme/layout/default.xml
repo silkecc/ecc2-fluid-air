@@ -12,7 +12,7 @@
         <referenceBlock name="store_language" remove="true"/>
         <referenceBlock name="store_switcher" remove="true"/>
         <referenceBlock name="currency" remove="true"/>
-
+        <referenceBlock name="store.settings" remove="true"/>
 		<referenceContainer name='header-wrapper'>
 			<container htmlClass="col-sm-8 col-md-7" htmlTag="div">
 				<container name="header.wrapper.left" htmlClass="header-wrapper-left" htmlTag="div" >

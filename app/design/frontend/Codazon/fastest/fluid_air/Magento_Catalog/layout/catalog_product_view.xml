@@ -12,5 +12,8 @@
         <referenceBlock name="product.info.overview" remove="true" />
         <referenceBlock name="reviews.tab" remove="true" />
         <referenceContainer name="product.info.social" remove="true" />
+        <referenceContainer name="product.info.main">
+            <block class="Magento\Catalog\Block\Product\View" name="product.info.lead.time" as="lead_time" template="product/view/leadtime.phtml" before="product.info.price" />
+        </referenceContainer>
     </body>
 </page>

@@ -513,10 +513,15 @@
 				}
 				&.parent:hover{
 					&:after{
-						.abs-iconfont('\f0dd', 24px);
-						.lib-css(color, @menu_hover_background);
+                        content: '';
+                        display: block;
+                        width: 0;
+                        height: 0;
+                        border-right: 8px solid transparent;
+                        border-left: 8px solid transparent;
+                        border-top: 16px solid @menu_hover_background;
 						position:absolute;
-						bottom:-4px;
+						bottom:-8px;
 						left:42%;
 						left: calc(~'(100% - 14px) / 2');
 						-webkit-left: calc(~'(100% - 14px) / 2');

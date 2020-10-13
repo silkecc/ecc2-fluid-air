@@ -85,27 +85,29 @@ div[class^="swatch-opt-"] > div{ vertical-align: top;}
 	position:relative;
 	overflow:inherit;
 	.abs-transition;
-	.abs-borderradius(5px);
-}
-.swatch-option:hover,
-.swatch-option.selected{
-	outline:none;
-	.lib-css(border, 1px solid #005A9C);color: #005A9C;
-	&:after{
-		// position:absolute;
-		// bottom:-6px;
-		// width:15px;
-		// left:-1px;
-		// content:'';
-		// height:2px;
-		// background:@main_title_border;
-	}
-}
-.swatch-option.text:not(.disabled):hover, .swatch-option.image:not(.disabled):hover, .swatch-option.color:not(.disabled):hover{
-	outline:none;
-	.lib-css(border, 1px solid #005A9C);
-	.abs-scale(~'1, 1');background: #005A9C;
-    color: #fff;
+    .abs-borderradius(5px);
+    &:hover,
+    &.selected{
+        outline:none;
+        color: #005A9C;
+    }
+    &.selected {
+        .lib-css(border, 2px solid #005A9C);
+        padding: 5px 14px 1px 14px;
+    }
+    &.text,
+    &.image,
+    &.color {
+        &:not(.disabled),
+        &:not(.selected) {
+            &:hover {
+                outline:none;
+                .lib-css(border, 1px solid #005A9C);
+                .abs-scale(~'1, 1');background: #005A9C;
+                color: #fff;
+            }
+        }
+    }
 }
 .swatch-attribute.size .swatch-option,
 .swatch-attribute.manufacturer .swatch-option{
@@ -113,8 +115,9 @@ div[class^="swatch-opt-"] > div{ vertical-align: top;}
 		width:22px;
 	}
 }
-.swatch-attribute.size .swatch-option.selected, .swatch-attribute.manufacturer .swatch-option.selected{
-	.lib-css(border, 1px solid #005A9C);
+.swatch-attribute.size .swatch-option.selected,
+.swatch-attribute.manufacturer .swatch-option.selected{
+	.lib-css(border, 2px solid #005A9C);
 	background: #fff;
     color: #005A9C;
 	&:after{
