@@ -1011,8 +1011,13 @@
             }
         }
     }
-    .account.customerconnect-shipments-index .table-wrapper table.data-grid thead tr.data-grid-filters {
-        display: flex!important;
-        flex-wrap: wrap;
+    .account {
+        &.customerconnect-rmas-index,
+        &.customerconnect-shipments-index {
+            .table-wrapper table.data-grid thead tr.data-grid-filters {
+                display: flex!important;
+                flex-wrap: wrap;
+            }
+        }
     }
 }
