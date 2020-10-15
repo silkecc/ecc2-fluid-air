@@ -84,25 +84,18 @@
 //  ---------------------------------------------
 
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
-    .block-collapsible-nav {
-        left: 0;
-        position: absolute;
-        top: 0px;
-        width: 100%;
-        z-index: 4;
-        &.customerconnect-collapsible-nav{
-            top: 40px;
-            z-index: 1;
+    .page-main .sidebar .block:not(.block-static-block) {
+        &.block-collapsible-nav {
+            padding: 10px;
+            margin-bottom: 10px;
         }
+    }
+    .block-collapsible-nav {
         .title {
             &:extend(.abs-toggling-title-mobile all);
-            &:after{
-                // top: 0px;
-            }
             border-top:0;
         }
         .content {
-            //border-bottom: @border-width__base solid @border-color__base;
             display: none;
             &.active {
                 display: block;
