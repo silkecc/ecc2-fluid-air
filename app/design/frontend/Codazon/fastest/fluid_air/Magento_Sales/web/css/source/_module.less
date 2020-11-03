@@ -15,7 +15,6 @@
         line-height: @tab-control__height;
         margin: 0 0 -1px;
         strong {
-            // .lib-css(background, @tab-control__active__background-color);
             border: @border-width__base solid @border-color__base;
             display: block;
             font-weight: @tab-control__font-weight;
@@ -340,6 +339,12 @@
     }
 }
 
+.sales-order-print {
+    .small-logo {
+        display: none;
+    }
+}
+
 }
 
 //
@@ -357,10 +362,32 @@
             &:extend(.abs-no-border-top all);
         }
     }
+    .account.page-layout-2columns-left {
+        .column.main {
+            .admin__data-grid-pager-wrap {
+                button {
+                    &.action-previous,
+                    &.action-next {
+                        margin: 0;
+                    }
+                }
+            }
+            .admin__data-grid-toolbar {
+                display: flex;
+                flex-direction: column;
+                .admin__data-grid-header-row._massaction {
+                    margin-top: 0;
+                }
+            }
+        }
+    }
     .account {
         .admin__data-grid-wrap thead tr.data-grid-filters td{
             width: 100% !important;
             float: none !important;
+            .range {
+                display: flex;
+            }
         }
         .table-order-items {
             tbody tr {
@@ -469,6 +496,7 @@
         .item {
             float: left;
             margin: 0 @tab-control__margin-right 0 0;
+            background-color: #fff;
             a {
                 padding: 0 @tab-control__padding-right;
             }
@@ -476,8 +504,6 @@
                 border-bottom: 0;
                 margin-bottom: -1px;
                 color: @btn_default_border;
-                // line-height:1.35;    
-                // padding: @tab-control__padding-top @tab-control__padding-right @tab-control__padding-bottom+1 @tab-control__padding-left;
             }
         }
     }
@@ -641,7 +667,7 @@
                 display: none;
             }
             &.data-grid-filters{
-                
+
                 td{
                     display: block;
                     padding: 5px 10px;
@@ -765,7 +791,7 @@
             // }
         }
     }
-    
+
     .account{
         &.customerconnect-shipments-index{
             .table-wrapper table.data-grid{
@@ -793,7 +819,7 @@
         }
         &.customerconnect-dashboard-index,&.customerconnect-account-index{
             .column.main .box-info{
-                padding-top: 10px;  
+                padding-top: 10px;
                 float: none;
                 width: 100%;
             }
@@ -882,7 +908,7 @@
             #product-lines{
                 thead th{
                     font-size: 14px;
-                }       
+                }
             }
         }
         &.epicor-lists-lists-index,&.epicor_lists-lists-index{
@@ -890,7 +916,7 @@
                 thead tr{
                     td,th{
                         padding: 11px 5px;
-                    }    
+                    }
                 }
                 tbody tr{
                     td{
@@ -903,7 +929,7 @@
                     }
                 }
             }
-            
+
         }
         &.customerconnect-orders-index,&.customerconnect-invoices-index,&.customerconnect-payments-index,
         &.customerconnect-shipments-index{
@@ -917,18 +943,21 @@
             overflow: hidden;
             .admin__data-grid-pager-wrap{
                 display: block;
-                margin-bottom: 10px;
                 width: 100% !important;
+                .admin__control-support-text {
+                    padding: 0;
+                }
             }
             .admin__data-grid-header-row{
                 margin-left:3px;
                 .admin__data-grid-export{
-                    // margin-top: -1px;
                     margin-right: 0px;
                     padding-right: 0px
                 }
                 &._massaction{
-                    margin-top: -63px;
+                    .admin__grid-massaction {
+                        padding-top: 0;
+                    }
                 }
             }
         }
@@ -979,6 +1008,15 @@
             padding-top: 20px;
             &:after{
                 display: none;
+            }
+        }
+    }
+    .account {
+        &.customerconnect-rmas-index,
+        &.customerconnect-shipments-index {
+            .table-wrapper table.data-grid thead tr.data-grid-filters {
+                display: flex!important;
+                flex-wrap: wrap;
             }
         }
     }

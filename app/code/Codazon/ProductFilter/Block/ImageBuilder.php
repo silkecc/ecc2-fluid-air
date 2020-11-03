@@ -38,7 +38,7 @@ class ImageBuilder extends \Magento\Catalog\Block\Product\ImageBuilder
                 'height' => !empty($imagesize['resize_height']) ? $imagesize['resize_height'] : $helper->getHeight(),
                 'label' => $helper->getLabel(),
                 'ratio' =>  ($ratio != -1) ? $ratio : $this->getRatio($helper),
-                'custom_attributes' =>  [], 
+                //'custom_attributes' => $this->getCustomAttributes(), 
                 'resized_image_width' => !empty($imagesize['resize_width']) ? $imagesize['resize_width'] : $helper->getWidth(),
                 'resized_image_height' => !empty($imagesize['resize_height']) ? $imagesize['resize_height'] : $helper->getHeight(),
             ],

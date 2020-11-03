@@ -10,14 +10,14 @@
 		.head-note{
 			font-size: 14px;
 		    text-align: center;
-		    font-weight: bold;
+            font-family: 'Poppins-Bold';
 		}
 		.head-call{
 			text-align: right;
 			font-size: 14px;
-			font-weight: bold;
+			font-family: 'Poppins-Bold';
 		}
-		
+
 		.block-static-block.widget{
 			margin-bottom: 0px;
 		}
@@ -34,7 +34,8 @@
 			width: 100%;
 			max-width: 100%;
 			.main-logo{
-				display:inline-block;
+                display:inline-block;
+                width: auto;
 			}
 			.small-logo{display:none;}
 			.sticky-menu.active &{
@@ -44,9 +45,11 @@
 		}
 		.header.links{
 			.lib-list-inline();
-			> li{
+			> li {
 				> a{
-					position:relative;
+                    position:relative;
+                    .lib-font-size(10);
+                    padding-top: 2px;
 					&:before{
 						.abs-iconfont("\f007", 10px);
 						margin-right:@indent__xs;
@@ -56,16 +59,39 @@
 						}
 					}
 				}
-				&.greet.welcome{ display:none}
-				//&.greet.welcome > a:before{ display:none;}
-				&.wishlist > a:before{
-					content:"\f02e";
-				}
-				&.compare > a:before{
-					// content:"\f0ec";
-					content: "\e61e";
-    				font-family: 'Luma-Icons';
-				}
+				&.greet.welcome{
+                    display:none;
+                }
+				&.wishlist {
+                    &:before {
+                        content: '';
+                        display: block;
+                        width: 14px;
+                        height: 14px;
+                        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg t='1602556904155' class='icon' viewBox='0 0 1024 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' p-id='2210' xmlns:xlink='http://www.w3.org/1999/xlink' width='200' height='200'%3E%3Cdefs%3E%3Cstyle type='text/css'%3E%3C/style%3E%3C/defs%3E%3Cpath d='M192 0v1024l320-320 320 320V0z' p-id='2211' fill='%23202020'%3E%3C/path%3E%3C/svg%3E");
+                        background-size: 100%;
+                        background-repeat: no-repeat;
+                    }
+                    > a:before{
+                        content:"";
+                        display: none;
+                    }
+                }
+				&.compare {
+                    &:before {
+                        content: '';
+                        display: block;
+                        width: 24px;
+                        height: 14px;
+                        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg t='1602560271593' class='icon' viewBox='0 0 1490 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' p-id='3637' xmlns:xlink='http://www.w3.org/1999/xlink' width='291.015625' height='200'%3E%3Cdefs%3E%3Cstyle type='text/css'%3E%3C/style%3E%3C/defs%3E%3Cpath d='M1144.698146 831.994253 1144.698146 256.003284c0-17.680765-14.324572-32.005336-31.998769-32.005336l-160.00041 0c-17.674197 0-31.992201 14.324572-31.992201 32.005336l0 575.990969c0 17.687332 14.318004 32.005336 31.992201 32.005336l160.00041 0C1130.373574 863.99959 1144.698146 849.681586 1144.698146 831.994253z' p-id='3638'%3E%3C/path%3E%3Cpath d='M648.704099 863.99959l175.999795 0c17.674197 0 31.998769-14.318004 31.998769-32.005336L856.702662 191.999179c0-17.680765-14.324572-31.998769-31.998769-31.998769L648.704099 160.00041c-17.680765 0-32.005336 14.318004-32.005336 31.998769l0 639.995074C616.698762 849.681586 631.016766 863.99959 648.704099 863.99959z' p-id='3639'%3E%3C/path%3E%3Cpath d='M376.694862 415.997127c-17.680765 0-31.998769 14.318004-31.998769 31.998769l0 383.99179c0 17.687332 14.318004 32.005336 31.998769 32.005336l160.00041 0c17.680765 0 31.998769-14.318004 31.998769-32.005336L568.694041 447.995895c0-17.680765-14.318004-31.998769-31.998769-31.998769L376.694862 415.997127z' p-id='3640'%3E%3C/path%3E%3C/svg%3E");
+                        background-size: 100%;
+                        background-repeat: no-repeat;
+                    }
+                    > a:before{
+                        content: "";
+                        display: none;
+                    }
+                }
 				#authorization-trigger:before{
 					.abs-iconfont("\f007", 12px);
 					margin-right:@indent__xs;
@@ -89,27 +115,33 @@
 				position:relative;
 				font-size:0;
 				.abs-transition();
-				width:35px; height:35px; line-height:35px;
+                width:35px;
+                height:35px;
+                line-height:35px;
 				&:before{
-					.abs-iconfont("\f007", 20px);
-					text-align:center;
-					position:absolute; top:0; left:0; 
-					width:35px; height:35px; line-height:35px;
-					border:2px solid #808080;
-					color:#808080;
+                    content: '';
+                    display: block;
+                    position:absolute;
+                    top:0;
+                    left:0;
+                    width:35px;
+                    height:35px;
+                    line-height:35px;
+                    border:2px solid #808080;
+                    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg t='1602569142089' class='icon' viewBox='0 0 1024 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' p-id='12377' width='200' height='200' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cstyle type='text/css'%3E%3C/style%3E%3C/defs%3E%3Cpath d='M512.001673 545.443974c151.530248-0.008366 206.049882-151.729359 220.325647-276.357856C749.909333 115.551373 677.310745 0 512.001673 0c-165.282301 0-237.921046 115.543007-220.325647 269.084444C305.965176 393.711268 360.468078 545.455686 512.001673 545.443974z' p-id='12378' fill='%23808080'%3E%3C/path%3E%3Cpath d='M921.90285 906.721882c-1.656471-48.362248-7.323608-96.943686-15.763242-144.552993-10.224941-57.673621-23.239111-142.225569-73.592471-179.810719-29.120418-21.731556-66.829386-28.861072-100.166275-41.965595-16.225046-6.374902-30.760157-12.706301-44.401778-19.912784-46.04319 50.490562-106.081046 76.903739-175.99749 76.907085-69.896366 0-129.927529-26.413176-175.965699-76.907085-13.641621 7.208157-28.176732 13.541229-44.401778 19.912784-33.336889 13.104523-71.045856 20.232366-100.162928 41.965595-50.356706 37.58515-63.369203 122.137098-73.592471 179.810719-8.441307 47.609307-14.110118 96.190745-15.764915 144.552993-1.281673 37.457987 17.213908 42.708497 48.55132 54.017673 39.241621 14.151948 79.754876 24.657987 120.53919 33.269961 78.769359 16.633307 159.96319 29.418248 240.808993 29.990484 80.845804-0.573908 162.039634-13.357176 240.808993-29.990484 40.784314-8.608627 81.300915-19.114667 120.53919-33.269961C904.690614 949.433725 923.184523 944.183216 921.90285 906.721882z' p-id='12379' fill='%23808080'%3E%3C/path%3E%3C/svg%3E");
+                    background-size: 22px;
+                    background-repeat: no-repeat;
+                    background-position: center center;
 				}
-				&:hover{
-					&:before{
-						// .abs-cssall(#ffffff,@header_cart_background);
-					}
-				}
-				&:after{ display:none !important;}
+				&:after{
+                    display:none !important;
+                }
 			}
 		}
 		.header-bottom{
 			clear:both;
 		}
-		
+
 		//Cart
 		.minicart-wrapper{
 			margin-left:@indent__s;
@@ -125,11 +157,11 @@
 				.rtl-layout &{
 					padding: 0 45px 0 0;
 				}
-				
+
 				&:after{
 					.abs-iconfont("\f07a", 22px);
 					text-align:center;
-					position:absolute; top:0; left:0; 
+					position:absolute; top:0; left:0;
 					width:35px; height:35px; line-height:35px;
 					border:2px solid #808080;
 					color:#808080;
@@ -143,7 +175,7 @@
 						// .abs-cssall(#ffffff, @header_cart_background);
 					}
 				}
-				.price-label{ 
+				.price-label{
 					padding:0; min-height:0;
 					display:block;
 					clear:both;
@@ -159,7 +191,7 @@
 						}
 					}
 				}
-				.text{ 
+				.text{
 					position: relative;font-size: 12px;
 				}
 				&:before{
@@ -178,8 +210,8 @@
 					}
 				}
 			}
-			
-		}	
+
+		}
 	}
 }
 //Desktop
@@ -193,7 +225,8 @@
 			border-width:0 !important;
 		}
 		.cdz-login-form-dropdown{
-			top:34px;
+            top:34px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 		}
 		.logo {
 			img {
@@ -204,7 +237,7 @@
 	.header-main-menu .nav-sections{
 		width:100%;
 	}
-	.search-form-container .cdz-cat-search .current-cat span:active, 
+	.search-form-container .cdz-cat-search .current-cat span:active,
 	.search-form-container .cdz-cat-search .current-cat span:hover{
 		color: @header_search_text;
 	}
@@ -213,15 +246,15 @@
 		.cdz-horizontal-menu.cdz-translate li.level0 > .groupmenu-drop{top:46px;}
 		.cdz-main-menu{
 			.groupmenu{
-				li.level0{ 
+				li.level0{
 					> a.menu-link{
 						padding: 15px 20px;
 					}
-					
+
 				}
 			}
 		}
-		
+
 		.header-wrapper-center{
 			text-align:center;
 			display: inline-block;
@@ -237,7 +270,7 @@
 			width: 100%;
 			vertical-align: top;
 		}
-		
+
 		//Search
 		.search-wrapper{
 			float:none;
@@ -248,7 +281,7 @@
 			width:100%;
 			.block-search{
 				width:100%;
-				.control{ 
+				.control{
 					//.abs-borderradius(30px);
 				}
 				.action.search{
@@ -272,7 +305,19 @@
 				input[type="text"]{
 					border-width:0;
 					height:35px;
-					.abs-placeholder(#202020);
+                    .abs-placeholder(#202020);
+                    &::-webkit-input-placeholder {
+                        font-style: normal;
+                    }
+                    &:-moz-placeholder { /* Firefox 18- */
+                        font-style: normal;
+                    }
+                    &::-moz-placeholder {  /* Firefox 19+ */
+                        font-style: normal;
+                    }
+                    &:-ms-input-placeholder {
+                        font-style: normal;
+                    }
 				}
 			}
 		}
@@ -304,17 +349,12 @@
 			float: none;
 			display: inline-block;
 			vertical-align:top;
-			//width: 100%;
 			width: calc(~'100% - 160px');
 			text-align: center;
 			max-width: 100%;
 			margin: 0 110px 0px 50px;
-			//margin: 0 0 10px;
 			min-height: 40px;
-			.small-logo{display:inline-block;vertical-align:top; margin:0px 0 10px 0s; }
-			.main-logo{display:none;}
 			.rtl-layout &{
-				//padding: 0 50px 0 90px;
 				margin: 0 50px 0px 110px;
 			}
 		}
@@ -372,7 +412,7 @@
 			padding:0;
 			width: auto;
 			min-height: 0;
-		}		
+		}
 		//logo
 		.logo{
 			margin:0;
@@ -397,7 +437,8 @@
 			}
 			.action.toggle:before{
 				border-color:#fff;
-				color: #fff;
+                background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg t='1602570048024' class='icon' viewBox='0 0 1024 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' p-id='12655' xmlns:xlink='http://www.w3.org/1999/xlink' width='200' height='200'%3E%3Cdefs%3E%3Cstyle type='text/css'%3E%3C/style%3E%3C/defs%3E%3Cpath d='M512.001673 545.443974c151.530248-0.008366 206.049882-151.729359 220.325647-276.357856C749.909333 115.551373 677.310745 0 512.001673 0c-165.282301 0-237.921046 115.543007-220.325647 269.084444C305.965176 393.711268 360.468078 545.455686 512.001673 545.443974z' p-id='12656' fill='%23ffffff'%3E%3C/path%3E%3Cpath d='M921.90285 906.721882c-1.656471-48.362248-7.323608-96.943686-15.763242-144.552993-10.224941-57.673621-23.239111-142.225569-73.592471-179.810719-29.120418-21.731556-66.829386-28.861072-100.166275-41.965595-16.225046-6.374902-30.760157-12.706301-44.401778-19.912784-46.04319 50.490562-106.081046 76.903739-175.99749 76.907085-69.896366 0-129.927529-26.413176-175.965699-76.907085-13.641621 7.208157-28.176732 13.541229-44.401778 19.912784-33.336889 13.104523-71.045856 20.232366-100.162928 41.965595-50.356706 37.58515-63.369203 122.137098-73.592471 179.810719-8.441307 47.609307-14.110118 96.190745-15.764915 144.552993-1.281673 37.457987 17.213908 42.708497 48.55132 54.017673 39.241621 14.151948 79.754876 24.657987 120.53919 33.269961 78.769359 16.633307 159.96319 29.418248 240.808993 29.990484 80.845804-0.573908 162.039634-13.357176 240.808993-29.990484 40.784314-8.608627 81.300915-19.114667 120.53919-33.269961C904.690614 949.433725 923.184523 944.183216 921.90285 906.721882z' p-id='12657' fill='%23ffffff'%3E%3C/path%3E%3C/svg%3E");
+
 			}
 		}
 		//search
@@ -438,8 +479,8 @@
 					background:transparent;
 					.rtl-layout &{
 						padding:0 9px 0 24px;
-					}	
-					
+					}
+
 				}
 				&:hover input[type="text"]{
 					width:250px;
@@ -447,7 +488,7 @@
 					border-width:2px;background: #fff;
 					.rtl-layout &{
 						padding:0 10px 0 40px;
-					}	
+					}
 				}
 			}
 		}
@@ -470,7 +511,7 @@
 					color: #fff;
 				}
 				.price-label,
-				.text{ 
+				.text{
 					display:none;
 				}
 				.counter.qty{
@@ -531,7 +572,7 @@
 				right:50px;
 				top:15px;
 				z-index:5;
-				margin:0;					
+				margin:0;
 				.rtl-layout &{
 					left:50px;
 					right:auto;
@@ -552,7 +593,7 @@
 			padding: 0 10px 15px;
 			background: @header_background;
 		}
-		.mobile-search-wrapper{ 
+		.mobile-search-wrapper{
 			.block-search .control{
 				background: #ffffff;
 			}
@@ -598,7 +639,7 @@
 			.action.showcart{
 				vertical-align:top;
 				.price-label,
-				.text{ 
+				.text{
 					display:none !important;
 				}
 			}

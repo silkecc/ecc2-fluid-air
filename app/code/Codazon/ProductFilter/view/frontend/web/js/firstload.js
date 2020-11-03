@@ -1,5 +1,5 @@
 define([
-    "jquery", "domReady!", "catalogAddToCart"
+    "jquery", "jquery-ui-modules/widget", "domReady!", "catalogAddToCart"
 ],function ($) {
     $.widget('codazon.firstLoad', {
         options: {
@@ -29,7 +29,7 @@ define([
             if ($element.parents('md-tab-content').length > 0) {
                 cond7 = $element.parents('md-tab-content').first().hasClass('md-active');
             }
-
+            
             return cond1 && cond2 && (cond3 || cond4 || cond5 || cond6) && cond7;
         },
         _create: function() {
@@ -80,7 +80,7 @@ define([
                             mage.apply();
                         }
                         $('body').trigger('contentUpdated');
-                        $.fn._buildSlider();
+                        $.fn._buildSlider();    
                         $.fn._tooltip();
                         $("[data-role=tocart-form], .form.map.checkout").catalogAddToCart({});
                         self.element.find("input[name*='form_key']").remove();

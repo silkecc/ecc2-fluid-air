@@ -9,7 +9,10 @@
 	<body>
 		<referenceBlock name="home-link" remove="true" />
 		<referenceBlock name="quick_orderpad-link" remove="true" />
-
+        <referenceBlock name="store_language" remove="true"/>
+        <referenceBlock name="store_switcher" remove="true"/>
+        <referenceBlock name="currency" remove="true"/>
+        <referenceBlock name="store.settings" remove="true"/>
 		<referenceContainer name='header-wrapper'>
 			<container htmlClass="col-sm-8 col-md-7" htmlTag="div">
 				<container name="header.wrapper.left" htmlClass="header-wrapper-left" htmlTag="div" >
@@ -24,11 +27,6 @@
 				<container name="header.wrapper.right" htmlClass="header-wrapper-right" htmlTag="div" />
 			</container>
 		</referenceContainer>
-		<!--<move element="header.panel" destination="panel.wrapper.top" />
-		<move element="header.links" destination="header.panel.right" />
-		<move element="store_switcher" destination="header.panel.left" before="-" />
-		<move element="store_language" destination="header.panel.left" after="store_switcher" />
-		<move element="currency" destination="header.panel.left" after="-" />-->
 		<move element="logo" destination="logo.left" />
 		<move element="minicart" destination="header.wrapper.right" />
 	</body>
