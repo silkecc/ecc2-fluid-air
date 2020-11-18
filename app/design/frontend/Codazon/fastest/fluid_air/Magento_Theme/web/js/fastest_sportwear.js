@@ -113,7 +113,7 @@
 		},
 		_enlargeImg: function(){
 			var self = this;
-			var imgsObj = $('.enlargeImg img');//需要放大的图像
+			var imgsObj = $('.enlargeImg .openimg');//需要放大的图像
                 if(imgsObj){
                     $.each(imgsObj,function(){
                         $(this).click(function(){
