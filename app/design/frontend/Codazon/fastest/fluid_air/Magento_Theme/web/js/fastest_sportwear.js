@@ -20,7 +20,6 @@
 			this._buildMenu();
 			this._sameHeightItems();
 			this._enlargeImg();
-			this._enlargeImg();
 			this._resize();
 		},
 
