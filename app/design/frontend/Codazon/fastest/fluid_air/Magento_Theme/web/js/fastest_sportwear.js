@@ -172,7 +172,7 @@
                     	'display':'block',
                     	'opacity':1,
                     	"background-color":"#FFFFFF",
-                    	"background-color":"rgba(0,0,0,0.7)"
+                    	"background-color":"rgba(0,0,0,0.5)"
                     });
                 }
                 else{
