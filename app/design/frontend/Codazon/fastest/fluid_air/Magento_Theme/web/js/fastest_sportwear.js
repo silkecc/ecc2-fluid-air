@@ -135,13 +135,16 @@
                             lc.appendTo("body");
                             var wh=$(window).height();
                             var orignImg = new Image();
-                            orignImg.src =currImg.attr("src") ;
+var realSrc = currImg.parent("p").find('.sourceImg').val();console.log(realSrc);
+                            orignImg.src =realSrc ;
                             var cw= orignImg.width;
                             var ch = orignImg.height;
-                            lc.html('<div style="height:' + wh + 'px;"><img border=0 src=' + currImg.attr('src') + '></div>');
-                            if(ch<wh){
-                                var th=(wh-ch)/2;
-                                console.log(th);
+                            lc.html('<div style="height:' + wh + 'px;"><img border=0 src=' + realSrc + '></div>');
+console.log(ch);console.log(wh);console.log(stickmenu);
+/****                            if(ch<wh){
+                              //  var th=(wh-ch)/8;
+var th=0;                                
+console.log(th);
                                 if(th>stickmenu){
                                     th=th+stickmenu;
                                     lc.css('padding-top',th);
@@ -151,7 +154,8 @@
                             }else{
                                 lc.css('padding-top',stickmenu);
                             }
-                            
+**/
+ lc.css('padding-top',stickmenu);                            
                             lc.click(function(){
                                 $(this).remove();
                                 $('.overlayer').remove();
