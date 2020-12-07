@@ -122,15 +122,18 @@
                             self._overlayer(1);
                             var lc = $('<div class=enlargeContainer></div>');//图片容器
                             var ww=$(window).width();
-                            var wh=$(window).height()*1 -10*1;
+                            var wh=$(window).height()*1;
                             var stickmenu = 0;
                             if(ww < 768){
-                            	stickmenu = 30;
+                            	stickmenu = 15;
+                            	var wh=wh*1 -15*1;
                             }else{
                             	if($('.sticky-menu.active').length){
                             		stickmenu = 70;
+                            		var wh=wh*1 -85*1;
                             	}else{
-                            		stickmenu = 30;
+                            		stickmenu = 15;
+                            		var wh=wh*1 -15*1;
                             	}
                             }
                             lc.appendTo("body");
