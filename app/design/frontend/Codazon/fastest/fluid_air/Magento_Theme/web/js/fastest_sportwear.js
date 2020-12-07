@@ -143,13 +143,8 @@
                             orignImg.src =realSrc ;
                             var cw= 1275;
                             var ch = 1650;
-<<<<<<< HEAD
-                            lc.html('<div style="width:1000px"><img border=0 src=' + realSrc + '></div>');
-console.log(ch);console.log(wh);console.log(stickmenu);
-=======
                             lc.html('<div class="openimgcont" style="height:'+wh+'"><div style="margin:0 auto;"><img style="width:1000px;" border=0 src=' + realSrc + '></div></div>');
 							// console.log(ch);console.log(wh);console.log(stickmenu);
->>>>>>> origin/dev
 /****                            if(ch<wh){
                               //  var th=(wh-ch)/8;
 var th=0;                                
