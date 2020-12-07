@@ -116,9 +116,7 @@
                 if(imgsObj){
                     $.each(imgsObj,function(){
                         $(this).click(function(){
-                            var currImg = $(this);
-                            var ol = $('<div class=overlayer></div>');
-                            ol.appendTo("body");
+                            var currImg = $(this)
                             self._overlayer(1);
                             var lc = $('<div class=enlargeContainer></div>');//图片容器
                             var ww=$(window).width();
@@ -137,6 +135,8 @@
                             	}
                             }
                             lc.appendTo("body");
+                            var ol = $('<div class=overlayer></div>');
+                            ol.appendTo(lc);
                             var orignImg = new Image();
 							var realSrc = currImg.parent("p").find('.sourceImg').val();
 							// console.log(realSrc);
