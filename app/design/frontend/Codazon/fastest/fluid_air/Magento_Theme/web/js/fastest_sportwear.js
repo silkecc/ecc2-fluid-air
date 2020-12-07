@@ -122,25 +122,34 @@
                             self._overlayer(1);
                             var lc = $('<div class=enlargeContainer></div>');//图片容器
                             var ww=$(window).width();
+                            var wh=$(window).height()*1 - ;
                             var stickmenu = 0;
                             if(ww < 768){
                             	stickmenu = 30;
+                            	wh = wh*1 -30*1;
                             }else{
                             	if($('.sticky-menu.active').length){
                             		stickmenu = 70;
+                            		wh = wh*1 -70*1;
                             	}else{
                             		stickmenu = 30;
+                            		wh = wh*1 -30*1;
                             	}
                             }
                             lc.appendTo("body");
-                            var wh=$(window).height();
                             var orignImg = new Image();
-var realSrc = currImg.parent("p").find('.sourceImg').val();console.log(realSrc);
+							var realSrc = currImg.parent("p").find('.sourceImg').val();
+							// console.log(realSrc);
                             orignImg.src =realSrc ;
                             var cw= 1275;
                             var ch = 1650;
+<<<<<<< HEAD
                             lc.html('<div style="width:1000px"><img border=0 src=' + realSrc + '></div>');
 console.log(ch);console.log(wh);console.log(stickmenu);
+=======
+                            lc.html('<div class="openimgcont" style="height:'+wh+'"><div style="margin:0 auto;"><img style="width:1000px;" border=0 src=' + realSrc + '></div></div>');
+							// console.log(ch);console.log(wh);console.log(stickmenu);
+>>>>>>> origin/dev
 /****                            if(ch<wh){
                               //  var th=(wh-ch)/8;
 var th=0;                                
@@ -155,7 +164,7 @@ console.log(th);
                                 lc.css('padding-top',stickmenu);
                             }
 **/
- lc.css('padding-top',stickmenu);                            
+ 							lc.css('padding-top',stickmenu);                            
                             lc.click(function(){
                                 $(this).remove();
                                 $('.overlayer').remove();
