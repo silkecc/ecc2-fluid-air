@@ -135,15 +135,15 @@
                             	}
                             }
                             lc.appendTo("body");
-                            var ol = $('<div class=overlayer></div>');
-                            ol.appendTo(lc);
+                            // var ol = $('<div class=overlayer></div>');
+                            // ol.appendTo(lc);
                             var orignImg = new Image();
 							var realSrc = currImg.parent("p").find('.sourceImg').val();
 							// console.log(realSrc);
                             orignImg.src =realSrc ;
                             var cw= 1275;
                             var ch = 1650;
-                            lc.html('<div class="openimgcont" style="height:'+wh+'px;"><div style="margin:0 auto;"><img style="width:1000px;" border=0 src=' + realSrc + '></div></div>');
+                            lc.html('<div class=overlayer></div><div class="openimgcont" style="height:'+wh+'px;"><div style="margin:0 auto;"><img style="width:1000px;" border=0 src=' + realSrc + '></div></div>');
 							// console.log(ch);console.log(wh);console.log(stickmenu);
 /****                            if(ch<wh){
                               //  var th=(wh-ch)/8;
