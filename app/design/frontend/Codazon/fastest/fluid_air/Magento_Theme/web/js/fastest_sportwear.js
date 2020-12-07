@@ -116,8 +116,7 @@
                 if(imgsObj){
                     $.each(imgsObj,function(){
                         $(this).click(function(){
-                            var currImg = $(this)
-                            self._overlayer(1);
+                            var currImg = $(this);
                             var lc = $('<div class=enlargeContainer></div>');//图片容器
                             var ww=$(window).width();
                             var wh=$(window).height()*1;
@@ -144,6 +143,7 @@
                             var cw= 1275;
                             var ch = 1650;
                             lc.html('<div class=overlayer></div><div class="openimgcont" style="height:'+wh+'px;"><div style="margin:0 auto;"><img style="width:1000px;" border=0 src=' + realSrc + '></div></div>');
+							self._overlayer(1);
 							// console.log(ch);console.log(wh);console.log(stickmenu);
 /****                            if(ch<wh){
                               //  var th=(wh-ch)/8;
