@@ -137,9 +137,9 @@
                             var orignImg = new Image();
 var realSrc = currImg.parent("p").find('.sourceImg').val();console.log(realSrc);
                             orignImg.src =realSrc ;
-                            var cw= orignImg.width;
-                            var ch = orignImg.height;
-                            lc.html('<div style="height:' + wh + 'px;"><img border=0 src=' + realSrc + '></div>');
+                            var cw= 1275;
+                            var ch = 1650;
+                            lc.html('<div style="width:1000px"><img border=0 src=' + realSrc + '></div>');
 console.log(ch);console.log(wh);console.log(stickmenu);
 /****                            if(ch<wh){
                               //  var th=(wh-ch)/8;
