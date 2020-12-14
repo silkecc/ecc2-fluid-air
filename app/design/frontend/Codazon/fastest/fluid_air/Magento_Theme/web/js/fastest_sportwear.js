@@ -19,7 +19,6 @@
 			this._alignMenu();
 			this._buildMenu();
 			this._sameHeightItems();
-			this._enlargeImg();
 			this._resize();
 		},
 
@@ -109,84 +108,6 @@
 					//},100);
 				});
 			}
-		},
-		_enlargeImg: function(){
-			var self = this;
-			var imgsObj = $('.enlargeImg .openimg');//需要放大的图像
-                if(imgsObj){
-                    $.each(imgsObj,function(){
-                        $(this).click(function(){
-                            var currImg = $(this);
-                            var lc = $('<div class=enlargeContainer></div>');//图片容器
-                            var ww=$(window).width();
-                            var wh=$(window).height()*1;
-                            var stickmenu = 0;
-                            if(ww < 768){
-                            	stickmenu = 15;
-                            	var wh=wh*1 -15*1;
-                            }else{
-                            	if($('.sticky-menu.active').length){
-                            		stickmenu = 70;
-                            		var wh=wh*1 -85*1;
-                            	}else{
-                            		stickmenu = 15;
-                            		var wh=wh*1 -15*1;
-                            	}
-                            }
-                            lc.appendTo("body");
-                            // var ol = $('<div class=overlayer></div>');
-                            // ol.appendTo(lc);
-                            var orignImg = new Image();
-							var realSrc = currImg.parent("p").find('.sourceImg').val();
-							// console.log(realSrc);
-                            orignImg.src =realSrc ;
-                            var cw= 1275;
-                            var ch = 1650;
-                            lc.html('<div class=overlayer></div><div class="openimgcont" style="height:'+wh+'px;"><div style="margin:0 auto;"><img style="width:1000px;" border=0 src=' + realSrc + '></div></div>');
-							self._overlayer(1);
-							// console.log(ch);console.log(wh);console.log(stickmenu);
-/****                            if(ch<wh){
-                              //  var th=(wh-ch)/8;
-var th=0;                                
-console.log(th);
-                                if(th>stickmenu){
-                                    th=th+stickmenu;
-                                    lc.css('padding-top',th);
-                                }else{
-                                    lc.css('padding-top',stickmenu);
-                                }
-                            }else{
-                                lc.css('padding-top',stickmenu);
-                            }
-**/
- 							lc.css('padding-top',stickmenu);                            
-                            lc.click(function(){
-                                $(this).remove();
-                                $('.overlayer').remove();
-                                self._overlayer(0);
-                            });
-                        });
-                    });
-                }
-                else{
-                    return false;
-                }
-		},
-		_overlayer: function(tag){ 
-			// with($('.over')){
-                if(tag==1){
-                    $('.overlayer').css({
-                    	'height':$(document).height(),
-                    	'display':'block',
-                    	'opacity':1,
-                    	"background-color":"#FFFFFF",
-                    	"background-color":"rgba(0,0,0,0.5)"
-                    });
-                }
-                else{
-                    $('.overlayer').css('display','none');
-                }
-            // }
 		},
 		_resize: function () {
 			var self = this;
