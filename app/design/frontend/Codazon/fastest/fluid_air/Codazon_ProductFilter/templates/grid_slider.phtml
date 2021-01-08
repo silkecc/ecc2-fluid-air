@@ -93,6 +93,9 @@
                             </a>
                             </strong>
                             <?php endif ?>
+                            
+                            <?php echo $_helper->productAttribute($_product, $_product->getSku(), 'sku'); ?>
+                            
                             <?php if($block->isShow('review')): ?>
                             <?php echo $block->getReviewsSummaryHtml($_product, $templateType); ?>
                             <?php endif ?>
