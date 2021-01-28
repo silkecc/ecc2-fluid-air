@@ -506,7 +506,7 @@
             }
         }
         .greet {
-            display: none;
+         /**   display: none; **/
         }
     }
 
@@ -536,21 +536,21 @@
 						.abs-link(@header_text, @header_hover_text);
                     }
                     &.welcome {
-						display:none;
+/**						display:none; **/
                         a {
                             .lib-css(color, @color-white);
                             .lib-css(padding-left, @indent__xs);
                         }
                     }
                 }
-                > .authorization-link {
+                >.customer-welcome + .authorization-link {
                     &:after {
                         content: attr(data-label);
                         display: inline-block;
                         margin: 0 -@indent__xs 0 @indent__xs;
                     }
                 }
-                > .customer-welcome + .authorization-link {
+                > .authorization-link {
                     display: none;
                 }
             }
