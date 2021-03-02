@@ -128,6 +128,7 @@ class ProductsList
         /* @var $contractHelper Epicor_Lists_Helper_Frontend_Contract */
         $activePricelists = $pricelistHelper->getPriceLists();
         $result['ecc_pricelists'] = json_encode($activePricelists);
+        $result['erp_account_id'] = $this->commHelper->getErpAccountInfo() ? $this->commHelper->getErpAccountInfo()->getErpCode() : '';
         return $result;
     }
 

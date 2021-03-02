@@ -172,11 +172,15 @@ class Product implements \MageWorx\SearchSuiteAutocomplete\Model\SearchInterface
     {
         /** @var \MageWorx\SearchSuiteAutocomplete\Block\Autocomplete\Product $product */
         $product = $this->productAgregator->setProduct($product);
-
+        if (method_exists($product, 'getSmallImage')) {
+            $image = $product->getSmallImage();
+        } else {
+            $image = $product->getImage();
+        }
         $data = [
             ProductFields::NAME => $product->getName(),
             ProductFields::SKU => $product->getSku(),
-            ProductFields::IMAGE => $product->getImage(),
+            ProductFields::IMAGE => $image,
             ProductFields::REVIEWS_RATING => $product->getReviewsRating(),
             ProductFields::SHORT_DESCRIPTION => $product->getShortDescription(),
             ProductFields::DESCRIPTION => $product->getDescription(),
@@ -194,7 +198,7 @@ class Product implements \MageWorx\SearchSuiteAutocomplete\Model\SearchInterface
     public function canAddToResult()
     {
         return in_array(
-            AutocompleteFields::PRODUCT, 
+            AutocompleteFields::PRODUCT,
             $this->helperData->getAutocompleteFieldsAsArray()
         );
     }
@@ -225,13 +229,12 @@ class Product implements \MageWorx\SearchSuiteAutocomplete\Model\SearchInterface
                 ->getFirstItem();
             if ($category) {
                 $cateFilter      = $this->filterBuilder
-                                        ->setField('category_ids')
-                                        ->setValue($category->getId()
-                                        )->setConditionType('eq')
-                                        ->create();
+                    ->setField('category_ids')
+                    ->setValue($category->getId())->setConditionType('eq')
+                    ->create();
                 $catFilterGroup = $this->searchFilterGroupBuilder
-                                    ->addFilter($cateFilter)
-                                    ->create();
+                    ->addFilter($cateFilter)
+                    ->create();
                 $filterGroups[] = $catFilterGroup;
             }
         }
@@ -281,4 +284,3 @@ class Product implements \MageWorx\SearchSuiteAutocomplete\Model\SearchInterface
         ];
     }
 }
-
