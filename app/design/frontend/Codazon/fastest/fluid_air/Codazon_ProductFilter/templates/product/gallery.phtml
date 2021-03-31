@@ -15,8 +15,8 @@ if ($images) {
         $widget['Codazon_ProductFilter/js/product-gallery']['width'] = $width;
         $widget['Codazon_ProductFilter/js/product-gallery']['height'] = $height;
         $widget['Codazon_ProductFilter/js/product-gallery']['images'][] = [
-            'large' => $_helper->init($_product,'large_image',['aspect_ratio' => true])->setImageFile($img->getFile())->resize($width,$height)->getUrl(),
-            'small' => $_helper->init($_product,'small_image',['aspect_ratio' => true])->setImageFile($img->getFile())->resize($smallWidth,$smallHeight)->keepFrame(true)->getUrl()
+            'large' => $_helper->init($_product,'large_image',['aspect_ratio' => false])->setImageFile($img->getFile())->resize($width,$height)->getUrl(),
+            'small' => $_helper->init($_product,'small_image',['aspect_ratio' => false])->setImageFile($img->getFile())->resize($smallWidth,$smallHeight)->getUrl()
         ];
         $count++;
         if($count == 5) {
