@@ -240,8 +240,10 @@
     						text-align: left;
     						vertical-align:middle;
     						border:none;
+    						padding: 20px;
     						@media (max-width: 767px){
     							font-size:14px;
+    							padding: 10px;
     						}
     						&:first-child{
     							text-align: center;
@@ -251,13 +253,23 @@
 							    padding: 0px;
 							    margin: 0px;
 							    text-align: left;
-							    &:hover{
-							    	color:#0054A4;
-							    	text-decoration:underline;
+							    li{
+							    	list-style: inside;
+								    margin-bottom: 0px;
+								    line-height: 28px;
+								    &:hover{
+								    	color:#0054A4;
+								    	text-decoration:underline;
+								    	a{
+								    		color:#0054A4;
+								    		text-decoration:underline;
+								    	}
+								    }
 							    }
+							    
     						}
 						}
-						.even{
+						&.even{
 							td{
 								background: #EBEBEB;
 							}
