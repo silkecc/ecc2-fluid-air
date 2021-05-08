@@ -216,9 +216,61 @@
 & when (@media-common = true){
 	.cms-page-view{
 		&.page-layout-1column .columns{
-            padding: 0;
+            padding: 30px 20px;
             box-shadow: 0 0 0;
-            background-color: transparent;
+            .resources.table{
+				thead{
+					th{
+						background: #221F20;
+					    color: #fff;
+					    font-family: 'Poppins-Bold';
+					    font-size: 18px;
+					    text-align: center;
+					    font-weight: 100;
+					    &:first-child{
+					    	width: 25%;
+					    }
+					}
+				}
+				tbody{
+					tr{
+						td{
+							font-family: 'Poppins-Regular';
+    						font-size: 16px;
+    						text-align: left;
+    						vertical-align:middle;
+    						border:none;
+    						@media (max-width: 767px){
+    							font-size:14px;
+    						}
+    						&:first-child{
+    							text-align: center;
+    						}
+    						.resources-items{
+    							display: inline-block;
+							    padding: 0px;
+							    margin: 0px;
+							    text-align: left;
+							    &:hover{
+							    	color:#0054A4;
+							    	text-decoration:underline;
+							    }
+    						}
+						}
+						.even{
+							td{
+								background: #EBEBEB;
+							}
+							.border-right{
+								border-right: 1px solid #fff;
+							}
+						}
+					}
+				}
+				.border-right{
+					border-right: 1px solid #EBEBEB;
+				}
+            }
 		}
 		p{
 			line-height: 24px;
@@ -228,15 +280,19 @@
 			}
 		}
 		h1{
-			font-size: 36px;
+			font-size: 48px;
+			text-align: center;
+		}
+		&.cms-about-us{
+			h1{
+				font-size:36px;
+			}
 		}
 	}
 	.aboutus-page{
-
 		.aboutus-box{
             margin-bottom:30px;
             background-color: #fff;
-            padding: 30px;
             margin-bottom: 40px;
 		}
 		.box-img{
